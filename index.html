@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CISSP Certification Workspace</title>
+    <meta name="description" content="A certification workspace for the CISSP (Certified Information Systems Security Professional) exam: all 8 domains, domain knowledge checks, and notes in one place.">
+    <meta name="theme-color" content="#12151c">
+    <link rel="canonical" href="https://myintp.github.io/CISSPCertification/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://myintp.github.io/CISSPCertification/">
+    <meta property="og:title" content="CISSP Certification Workspace">
+    <meta property="og:description" content="A certification workspace for the CISSP exam: all 8 domains, domain knowledge checks, and notes in one place.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%231a4480'/%3E%3Cpath d='M35 46h30a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H35a4 4 0 0 1-4-4V50a4 4 0 0 1 4-4z' fill='white'/%3E%3Cpath d='M40 46v-8a10 10 0 0 1 20 0v8' fill='none' stroke='white' stroke-width='6'/%3E%3Ccircle cx='50' cy='60' r='4' fill='%231a4480'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="appShell">
+
+    <!-- ================= CONTEXT BAR ================= -->
+    <header id="contextBar">
+        <button id="navDrawerToggle" class="icon-btn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebarNav">☰</button>
+        <div class="context-crumb">
+            <span class="context-crumb__title" id="ctxTitle">Start</span>
+            <span class="context-crumb__path" id="ctxPath">Get Started</span>
+        </div>
+        <div class="context-bar__spacer"></div>
+        <div class="context-bar__actions">
+            <span class="context-progress" title="Checklist progress (Sheet 12)">
+                <span class="context-progress__value" id="ctxProgressValue">0%</span>
+            </span>
+            <button id="bookmarkToggle" class="icon-btn" aria-pressed="false" aria-label="Bookmark this sheet" title="Bookmark this sheet">☆</button>
+            <button id="searchTrigger" class="search-trigger" aria-haspopup="dialog" aria-controls="searchDialog" aria-label="Search the certification workspace">
+                🔍 <span class="search-trigger__text">Search <kbd>Ctrl K</kbd></span>
+            </button>
+        </div>
+        <div id="readingProgress" aria-hidden="true"></div>
+    </header>
+
+    <!-- ================= SIDEBAR NAVIGATION ================= -->
+    <nav id="sidebarNav" aria-label="Certification map">
+        <div class="sidebar-brand">🔐 CISSP Certification</div>
+        <div class="nav-groups">
+
+            <details class="nav-group" open data-group-id="get-started">
+                <summary>Get Started</summary>
+                <ul>
+                    <li><a class="nav-item" href="#sheet-00"><span class="nav-item__code">00</span><span class="nav-item__label">Start</span><span class="nav-item__note-dot" aria-hidden="true"></span></a></li>
+                </ul>
+            </details>
+
+            <details class="nav-group" open data-group-id="review">
+                <summary>Review</summary>
+                <ul>
+                    <li><a class="nav-item" href="#sheet-review"><span class="nav-item__code">R</span><span class="nav-item__label">Review Queue</span><span class="nav-item__note-dot" aria-hidden="true"></span></a></li>
+                </ul>
+            </details>
+
+            <details class="nav-group" open data-group-id="exam">
+                <summary>Exam</summary>
+                <ul>
+                    <li><a class="nav-item" href="#sheet-01"><span class="nav-item__code">01</span><span class="nav-item__label">Exam Model &amp; Format</span><span class="nav-item__note-dot" aria-hidden="true"></span></a></li>
+                    <li><a class="nav-item" href="#sheet-11"><span class="nav-item__code">11</span><span class="nav-item__label">Exam-Day Checklist</span><span class="nav-item__note-dot" aria-hidden="true"></span></a></li>
+                </ul>
+            </details>
+
+            <details class="nav-group" open data-group-id="method">
+                <summary>Method</summary>
+                <ul>
+                    <li><a class="nav-item" href="#sheet-02"><span class="nav-item__code">02</span><span class="nav-item__label">Study Method</span><span class="nav-item__note-dot" aria-hidden="true"></span></a></li>
+                </ul>
+            </details>
+
+            <details class="nav-group" open data-group-id="domains">
+                <summary>CBK Domains</summary>
+                <ul>
+                    <li><a class="nav-item" href="#sheet-03"><span class="nav-item__code">03</span><span class="nav-item__label">D1 · Security &amp; Risk Mgmt</span><span class="nav-item__note-dot" aria-hidden="true"></span></a></li>
+                    <li><a class="nav-item" href="#sheet-04"><span class="nav-item__code">04</span><span class="nav-item__label">D2 · Asset Security</span><span class="nav-item__note-dot" aria-hidden="true"></span></a></li>
+                    <li><a class="nav-item" href="#sheet-05"><span class="nav-item__code">05</span><span class="nav-item__label">D3 · Security Arch. &amp; Eng.</span><span class="nav-item__note-dot" aria-hidden="true"></span></a></li>
+                    <li><a class="nav-item" href="#sheet-06"><span class="nav-item__code">06</span><span class="nav-item__label">D4 · Comms &amp; Network Sec.</span><span class="nav-item__note-dot" aria-hidden="true"></span></a></li>
+                    <li><a class="nav-item" href="#sheet-07"><span class="nav-item__code">07</span><span class="nav-item__label">D5 · Identity &amp; Access Mgmt</span><span class="nav-item__note-dot" aria-hidden="true"></span></a></li>
+                    <li><a class="nav-item" href="#sheet-08"><span class="nav-item__code">08</span><span class="nav-item__label">D6 · Security Assess. &amp; Testing</span><span class="nav-item__note-dot" aria-hidden="true"></span></a></li>
+                    <li><a class="nav-item" href="#sheet-09"><span class="nav-item__code">09</span><span class="nav-item__label">D7 · Security Operations</span><span class="nav-item__note-dot" aria-hidden="true"></span></a></li>
+                    <li><a class="nav-item" href="#sheet-10"><span class="nav-item__code">10</span><span class="nav-item__label">D8 · Software Dev. Security</span><span class="nav-item__note-dot" aria-hidden="true"></span></a></li>
+                </ul>
+            </details>
+
+            <details class="nav-group" open data-group-id="practice">
+                <summary>Practice</summary>
+                <ul>
+                    <li><a class="nav-item" href="#sheet-practice"><span class="nav-item__code">Q</span><span class="nav-item__label">Domain Knowledge Checks</span><span class="nav-item__note-dot" aria-hidden="true"></span></a></li>
+                </ul>
+            </details>
+
+            <details class="nav-group" open data-group-id="reference">
+                <summary>Reference</summary>
+                <ul>
+                    <li><a class="nav-item" href="#sheet-ref"><span class="nav-item__code">REF</span><span class="nav-item__label">Official Resources</span><span class="nav-item__note-dot" aria-hidden="true"></span></a></li>
+                    <li><a class="nav-item" href="#sheet-companions"><span class="nav-item__code">C</span><span class="nav-item__label">Study Companions</span><span class="nav-item__note-dot" aria-hidden="true"></span></a></li>
+                </ul>
+            </details>
+
+            <details class="nav-group" open data-group-id="tracker">
+                <summary>Progress</summary>
+                <ul>
+                    <li><a class="nav-item" href="#sheet-12"><span class="nav-item__code">12</span><span class="nav-item__label">Tracker</span><span class="nav-item__note-dot" aria-hidden="true"></span></a></li>
+                </ul>
+            </details>
+
+        </div>
+        <div class="sidebar-footer">
+            <a href="https://github.com/MyintP/CISSPCertification" target="_blank" rel="noopener">GitHub</a>
+            &nbsp;·&nbsp;
+            <a href="https://www.isc2.org/Certifications/CISSP" target="_blank" rel="noopener">ISC2 CISSP</a>
+        </div>
+    </nav>
+
+    <div id="navBackdrop"></div>
+
+    <!-- ================= WORKSPACE ================= -->
+    <div id="workspace">
+        <main id="contentCanvas">
+
+            <!-- SHEET 00 -->
+            <article class="sheet" id="sheet-00" data-title="Start" data-group="Get Started" data-code="00">
+                <div class="sheet-inner">
+                    <div class="sheet-header">
+                        <div class="sheet-kicker"><span class="sheet-kicker__code">00</span><span>Beginner Start</span></div>
+                        <h1 class="sheet-title">Prepare to think like a security leader — across all 8 domains, from zero.</h1>
+                        <p class="sheet-lede">CISSP is broad, not deep: it certifies that you can reason about security governance, architecture, and operations at a management level across the entire CBK (Common Body of Knowledge), not that you're a hands-on specialist in any one domain. Core rule: study the <strong>reasoning</strong>, not just the vocabulary — the exam rewards the "best" answer, not merely a technically correct one.</p>
+                    </div>
+
+                    <div class="card-grid">
+                        <div class="info-card">
+                            <h3>📖 Know</h3>
+                            <p>Learn the vocabulary, models, and mechanics of each of the 8 domains.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>🔍 Recognize</h3>
+                            <p>Spot which domain and which concept a scenario is actually testing.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>🛡️ Apply &amp; Defend</h3>
+                            <p>Choose the most appropriate, risk-aware answer — and explain why it beats the runner-up.</p>
+                        </div>
+                    </div>
+
+                    <h4>How to use this workspace</h4>
+                    <ul>
+                        <li>Read the domain sheets in order using the left-hand map — study time should roughly track the exam weight of each domain.</li>
+                        <li>Open the full deep-dive for a domain (linked at the bottom of each sheet) before testing yourself.</li>
+                        <li>Use <a href="#sheet-practice">Practice</a> to run each domain's knowledge check, and re-read anything you score below 8/10 on.</li>
+                        <li>Keep notes in the Study Desk below — it remembers a separate note per sheet.</li>
+                        <li>Check off each domain in the <a href="#sheet-12">Progress Tracker</a> once you're consistently scoring well.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- SHEET: REVIEW -->
+            <article class="sheet" id="sheet-review" data-title="Review" data-group="Study" data-code="R">
+                <div class="sheet-inner">
+                    <div class="sheet-header">
+                        <div class="sheet-kicker"><span class="sheet-kicker__code">R</span><span>Study</span></div>
+                        <h1 class="sheet-title">Review</h1>
+                        <p class="sheet-lede">Your study queue — what you've bookmarked, where you've left notes, and where to pick practice back up.</p>
+                    </div>
+
+                    <div class="review-filters" role="group" aria-label="Filter review queue">
+                        <button type="button" class="review-filter is-active" data-filter="all" aria-pressed="true">All</button>
+                        <button type="button" class="review-filter" data-filter="bookmarked" aria-pressed="false">Bookmarked</button>
+                        <button type="button" class="review-filter" data-filter="notes" aria-pressed="false">Has Notes</button>
+                        <button type="button" class="review-filter" data-filter="practice" aria-pressed="false">Practice</button>
+                    </div>
+
+                    <div id="reviewHubContent"></div>
+                </div>
+            </article>
+
+            <!-- SHEET 01 -->
+            <article class="sheet" id="sheet-01" data-title="Exam Model &amp; Format" data-group="Exam" data-code="01">
+                <div class="sheet-inner">
+                    <div class="sheet-header">
+                        <div class="sheet-kicker"><span class="sheet-kicker__code">01</span><span>Current Exam Model</span></div>
+                        <h1 class="sheet-title">What the exam actually looks like</h1>
+                        <p class="sheet-lede">Confirmed from ISC2's own current CISSP Certification Exam Outline (effective April 15, 2024).</p>
+                    </div>
+
+                    <div class="table-scroll">
+                        <table class="table-standard">
+                            <thead><tr><th>Detail</th><th>Info</th></tr></thead>
+                            <tbody>
+                                <tr><td>Format</td><td>Computerized Adaptive Testing (CAT) for the English exam; linear/fixed-form for other languages</td></tr>
+                                <tr><td>Duration</td><td>3 hours</td></tr>
+                                <tr><td>Question count</td><td>100–150 items (CAT can end early once your ability estimate is statistically confident)</td></tr>
+                                <tr><td>Question types</td><td>Multiple choice and advanced item types (drag-and-drop, hotspot)</td></tr>
+                                <tr><td>Passing score</td><td>700 out of 1000 points</td></tr>
+                                <tr><td>Experience required</td><td>5 years cumulative, full-time, in 2+ of the 8 domains (1-year waiver with a relevant degree or an ISC2-approved credential)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pattern pattern--important">
+                        <span class="pattern__label">Important</span>
+                        <p><strong>Do not hard-code exam mechanics beyond this table.</strong> ISC2 periodically revises the outline and domain weights. Verify the current structure on the official <a href="https://www.isc2.org/certifications/cissp/cissp-certification-exam-outline" target="_blank" rel="noopener">CISSP Certification Exam Outline</a> immediately before your exam.</p>
+                    </div>
+
+                    <h2>The 8 Domains and Their Weight</h2>
+                    <div class="table-scroll">
+                        <table class="table-standard">
+                            <thead><tr><th>#</th><th>Domain</th><th>Weight</th></tr></thead>
+                            <tbody>
+                                <tr><td>1</td><td>Security and Risk Management</td><td>16%</td></tr>
+                                <tr><td>2</td><td>Asset Security</td><td>10%</td></tr>
+                                <tr><td>3</td><td>Security Architecture and Engineering</td><td>13%</td></tr>
+                                <tr><td>4</td><td>Communication and Network Security</td><td>13%</td></tr>
+                                <tr><td>5</td><td>Identity and Access Management (IAM)</td><td>13%</td></tr>
+                                <tr><td>6</td><td>Security Assessment and Testing</td><td>12%</td></tr>
+                                <tr><td>7</td><td>Security Operations</td><td>13%</td></tr>
+                                <tr><td>8</td><td>Software Development Security</td><td>10%</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="sheet-footnote">Full detail, sources, and exam-day strategy: <a href="docs.html?file=docs/exam-overview.md" target="_blank" rel="noopener">docs/exam-overview.md →</a></p>
+                </div>
+            </article>
+
+            <!-- SHEET 02 -->
+            <article class="sheet" id="sheet-02" data-title="Study Method" data-group="Method" data-code="02">
+                <div class="sheet-inner">
+                    <div class="sheet-header">
+                        <div class="sheet-kicker"><span class="sheet-kicker__code">02</span><span>Study Method</span></div>
+                        <h1 class="sheet-title">KNOW → RECOGNIZE → APPLY → DEFEND</h1>
+                        <p class="sheet-lede">Use the same mental loop for every topic across all 8 domains.</p>
+                    </div>
+
+                    <div class="card-grid card-grid--narrow breakout">
+                        <div class="info-card info-card--flat">
+                            <h4>❓ What is it?</h4>
+                            <p>Learn the concept, model, or control precisely — including what it does <em>not</em> do.</p>
+                        </div>
+                        <div class="info-card info-card--flat">
+                            <h4>🔍 What is this scenario really testing?</h4>
+                            <p>A question rarely names the concept directly — spot the domain and the specific model/control it's pointing at.</p>
+                        </div>
+                        <div class="info-card info-card--flat">
+                            <h4>⚡ What's the best answer?</h4>
+                            <p>Several options may be technically true. Pick the one a risk-aware security leader would choose given the full context.</p>
+                        </div>
+                        <div class="info-card info-card--flat">
+                            <h4>💡 Why is it best?</h4>
+                            <p>Be able to explain why the runner-up answer is wrong, not just why your answer is right.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern pattern--example">
+                        <span class="pattern__label">Example</span>
+                        <p>"This scenario describes [situation]. That points to [domain/concept]. Of the plausible options, [answer] is most appropriate because [reason] — whereas [runner-up] would also address part of the problem but [why it's second-best]."</p>
+                    </div>
+
+                    <h2>Why "best answer," not "only correct answer"</h2>
+                    <p>CISSP is written from a generalist security-management perspective. A deeply technical, single-vendor-specific fix is often <em>valid</em> but rarely the <em>most appropriate</em> choice on an exam built around governance, risk, and proportionate response. When two answers both look right, ask: <strong>"Which one would the CISO actually choose, given cost, risk, and business context?"</strong></p>
+
+                    <h2>Watch for absolutes</h2>
+                    <p>Words like "always," "never," and "only" are frequent — though not universal — signals of an incorrect option in a domain built entirely around trade-offs and context-dependent decisions.</p>
+                </div>
+            </article>
+
+            <!-- SHEET 03 — DOMAIN 1 -->
+            <article class="sheet" id="sheet-03" data-title="D1 · Security &amp; Risk Management" data-group="CBK Domains" data-code="03">
+                <div class="sheet-inner">
+                    <div class="sheet-header">
+                        <div class="sheet-kicker"><span class="sheet-kicker__code">03</span><span>Domain 1 · Weight 16%</span></div>
+                        <h1 class="sheet-title">Security and Risk Management</h1>
+                        <p class="sheet-lede">The largest domain — its concepts (risk, governance, ethics) thread through all seven others.</p>
+                    </div>
+
+                    <h2>CIA Triad and Its Opposite</h2>
+                    <div class="table-scroll">
+                        <table class="table-standard">
+                            <thead><tr><th>Property</th><th>Definition</th><th>Opposite (DAD)</th></tr></thead>
+                            <tbody>
+                                <tr><td>Confidentiality</td><td>Disclosed only to authorized subjects</td><td>Disclosure</td></tr>
+                                <tr><td>Integrity</td><td>Accurate, complete, unmodified</td><td>Alteration</td></tr>
+                                <tr><td>Availability</td><td>Timely, reliable access</td><td>Destruction</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2>Risk Formulas</h2>
+                    <p><strong>SLE = AV × EF</strong> (Single Loss Expectancy = Asset Value × Exposure Factor)<br><strong>ALE = SLE × ARO</strong> (Annualized Loss Expectancy = SLE × Annualized Rate of Occurrence)</p>
+
+                    <div class="pattern pattern--tip">
+                        <span class="pattern__label">Tip</span>
+                        <p>Four risk treatments: <strong>Mitigate, Avoid, Transfer, Accept</strong>. Buying insurance is <em>transfer</em>, not mitigation — it changes who pays, not the likelihood of the event.</p>
+                    </div>
+
+                    <h2>Governance Hierarchy</h2>
+                    <p>Policy (mandatory, high-level) → Standard (mandatory, specific) → Procedure (mandatory, step-by-step) → Guideline (discretionary). A Baseline is a minimum reference configuration state, distinct from a Standard's rule.</p>
+
+                    <p class="sheet-footnote"><a href="docs.html?file=domains/01-security-risk-management.md" target="_blank" rel="noopener">Full domain deep-dive →</a> · <a href="#sheet-practice">Test yourself: Domain 1 knowledge check →</a></p>
+                </div>
+            </article>
+
+            <!-- SHEET 04 — DOMAIN 2 -->
+            <article class="sheet" id="sheet-04" data-title="D2 · Asset Security" data-group="CBK Domains" data-code="04">
+                <div class="sheet-inner">
+                    <div class="sheet-header">
+                        <div class="sheet-kicker"><span class="sheet-kicker__code">04</span><span>Domain 2 · Weight 10%</span></div>
+                        <h1 class="sheet-title">Asset Security</h1>
+                        <p class="sheet-lede">Classifying, handling, and protecting data across its full lifecycle.</p>
+                    </div>
+
+                    <h2>Data Roles</h2>
+                    <div class="table-scroll">
+                        <table class="table-standard">
+                            <thead><tr><th>Role</th><th>Responsibility</th></tr></thead>
+                            <tbody>
+                                <tr><td>Data Owner</td><td>Accountable for classification and protection requirements</td></tr>
+                                <tr><td>Data Custodian</td><td>Day-to-day technical care per the owner's requirements</td></tr>
+                                <tr><td>Data Controller (GDPR)</td><td>Determines purpose and means of processing</td></tr>
+                                <tr><td>Data Processor (GDPR)</td><td>Processes data on behalf of the controller</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2>Sanitization Hierarchy</h2>
+                    <p><strong>Clear</strong> (software overwrite) → <strong>Purge</strong> (degauss/crypto-erase, more intensive) → <strong>Destroy</strong> (physical, irreversible — the only acceptable method for the highest sensitivity levels).</p>
+
+                    <div class="pattern pattern--important">
+                        <span class="pattern__label">Important</span>
+                        <p>Degaussing does not work on SSDs — they have no magnetic domains. Use cryptographic erase or physical destruction instead.</p>
+                    </div>
+
+                    <p class="sheet-footnote"><a href="docs.html?file=domains/02-asset-security.md" target="_blank" rel="noopener">Full domain deep-dive →</a> · <a href="#sheet-practice">Test yourself: Domain 2 knowledge check →</a></p>
+                </div>
+            </article>
+
+            <!-- SHEET 05 — DOMAIN 3 -->
+            <article class="sheet" id="sheet-05" data-title="D3 · Security Architecture &amp; Engineering" data-group="CBK Domains" data-code="05">
+                <div class="sheet-inner">
+                    <div class="sheet-header">
+                        <div class="sheet-kicker"><span class="sheet-kicker__code">05</span><span>Domain 3 · Weight 13%</span></div>
+                        <h1 class="sheet-title">Security Architecture and Engineering</h1>
+                        <p class="sheet-lede">Security models, evaluation criteria, cryptography, and physical security.</p>
+                    </div>
+
+                    <h2>Security Models — Anchor Each to What It Protects</h2>
+                    <div class="table-scroll">
+                        <table class="table-standard">
+                            <thead><tr><th>Model</th><th>Protects</th><th>Rule</th></tr></thead>
+                            <tbody>
+                                <tr><td>Bell-LaPadula</td><td>Confidentiality</td><td>No read up, no write down</td></tr>
+                                <tr><td>Biba</td><td>Integrity</td><td>No write up, no read down</td></tr>
+                                <tr><td>Clark-Wilson</td><td>Integrity (commercial)</td><td>Well-formed transactions, separation of duties</td></tr>
+                                <tr><td>Brewer-Nash</td><td>Confidentiality / conflict of interest</td><td>Dynamic block based on prior access</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pattern pattern--tip">
+                        <span class="pattern__label">Tip</span>
+                        <p>Sign with the <strong>sender's private</strong> key; encrypt for confidentiality with the <strong>recipient's public</strong> key. Reversing these is the single most common crypto mistake under time pressure.</p>
+                    </div>
+
+                    <p class="sheet-footnote"><a href="docs.html?file=domains/03-security-architecture-engineering.md" target="_blank" rel="noopener">Full domain deep-dive →</a> · <a href="#sheet-practice">Test yourself: Domain 3 knowledge check →</a></p>
+                </div>
+            </article>
+
+            <!-- SHEET 06 — DOMAIN 4 -->
+            <article class="sheet" id="sheet-06" data-title="D4 · Communication &amp; Network Security" data-group="CBK Domains" data-code="06">
+                <div class="sheet-inner">
+                    <div class="sheet-header">
+                        <div class="sheet-kicker"><span class="sheet-kicker__code">06</span><span>Domain 4 · Weight 13%</span></div>
+                        <h1 class="sheet-title">Communication and Network Security</h1>
+                        <p class="sheet-lede">The OSI model, secure protocols, segmentation, and common network attacks.</p>
+                    </div>
+
+                    <h2>OSI Model — Both Directions</h2>
+                    <p><strong>Top-down:</strong> Application → Presentation → Session → Transport → Network → Data Link → Physical (<em>"All People Seem To Need Data Processing"</em>)</p>
+                    <p><strong>Bottom-up:</strong> Physical → Data Link → Network → Transport → Session → Presentation → Application (<em>"Please Do Not Throw Sausage Pizza Away"</em>)</p>
+
+                    <h2>Secure Protocol Replacements</h2>
+                    <div class="table-scroll">
+                        <table class="table-standard">
+                            <thead><tr><th>Insecure</th><th>Secure replacement</th></tr></thead>
+                            <tbody>
+                                <tr><td>Telnet</td><td>SSH</td></tr>
+                                <tr><td>FTP</td><td>SFTP / FTPS</td></tr>
+                                <tr><td>HTTP</td><td>HTTPS (TLS)</td></tr>
+                                <tr><td>WEP / WPA</td><td>WPA3</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pattern pattern--important">
+                        <span class="pattern__label">Important</span>
+                        <p>A SYN flood exploits TCP's 3-way handshake specifically — this attack has no equivalent against connectionless UDP.</p>
+                    </div>
+
+                    <p class="sheet-footnote"><a href="docs.html?file=domains/04-communication-network-security.md" target="_blank" rel="noopener">Full domain deep-dive →</a> · <a href="#sheet-practice">Test yourself: Domain 4 knowledge check →</a></p>
+                </div>
+            </article>
+
+            <!-- SHEET 07 — DOMAIN 5 -->
+            <article class="sheet" id="sheet-07" data-title="D5 · Identity &amp; Access Management" data-group="CBK Domains" data-code="07">
+                <div class="sheet-inner">
+                    <div class="sheet-header">
+                        <div class="sheet-kicker"><span class="sheet-kicker__code">07</span><span>Domain 5 · Weight 13%</span></div>
+                        <h1 class="sheet-title">Identity and Access Management (IAM)</h1>
+                        <p class="sheet-lede">IAAA, authentication factors, access control models, and federation.</p>
+                    </div>
+
+                    <h2>IAAA — In Order</h2>
+                    <p><strong>Identification → Authentication → Authorization → Accountability.</strong> Accountability requires unique identification — a shared account defeats it even if every other control is perfect.</p>
+
+                    <h2>Access Control Models</h2>
+                    <div class="table-scroll">
+                        <table class="table-standard">
+                            <thead><tr><th>Model</th><th>How access is decided</th></tr></thead>
+                            <tbody>
+                                <tr><td>DAC</td><td>Object owner decides</td></tr>
+                                <tr><td>MAC</td><td>System enforces via labels; owner cannot override</td></tr>
+                                <tr><td>RBAC</td><td>Tied to job role</td></tr>
+                                <tr><td>ABAC</td><td>Real-time attributes of subject/object/environment</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pattern pattern--tip">
+                        <span class="pattern__label">Tip</span>
+                        <p>OAuth 2.0 grants delegated <strong>authorization</strong>; OpenID Connect (OIDC) adds the <strong>authentication</strong>/identity layer on top of it.</p>
+                    </div>
+
+                    <p class="sheet-footnote"><a href="docs.html?file=domains/05-identity-access-management.md" target="_blank" rel="noopener">Full domain deep-dive →</a> · <a href="#sheet-practice">Test yourself: Domain 5 knowledge check →</a></p>
+                </div>
+            </article>
+
+            <!-- SHEET 08 — DOMAIN 6 -->
+            <article class="sheet" id="sheet-08" data-title="D6 · Security Assessment &amp; Testing" data-group="CBK Domains" data-code="08">
+                <div class="sheet-inner">
+                    <div class="sheet-header">
+                        <div class="sheet-kicker"><span class="sheet-kicker__code">08</span><span>Domain 6 · Weight 12%</span></div>
+                        <h1 class="sheet-title">Security Assessment and Testing</h1>
+                        <p class="sheet-lede">Vulnerability assessment vs. penetration testing, code-level testing, and audits.</p>
+                    </div>
+
+                    <h2>Assessment vs. Testing vs. Audit</h2>
+                    <p>A <strong>vulnerability assessment</strong> finds and lists weaknesses. A <strong>penetration test</strong> proves they're exploitable and shows real impact — and always requires signed Rules of Engagement first. An <strong>audit</strong> is an independent, formal check against a standard or policy.</p>
+
+                    <h2>SAST vs. DAST</h2>
+                    <p><strong>SAST</strong> analyzes source code without running it (earlier, cheaper to fix). <strong>DAST</strong> tests the running application from outside (catches runtime/config issues SAST can't see). Neither replaces the other.</p>
+
+                    <div class="pattern pattern--tip">
+                        <span class="pattern__label">Tip</span>
+                        <p>SOC 2 Type I = design at a point in time. SOC 2 Type II = design <strong>and</strong> operating effectiveness over a period — stronger assurance.</p>
+                    </div>
+
+                    <p class="sheet-footnote"><a href="docs.html?file=domains/06-security-assessment-testing.md" target="_blank" rel="noopener">Full domain deep-dive →</a> · <a href="#sheet-practice">Test yourself: Domain 6 knowledge check →</a></p>
+                </div>
+            </article>
+
+            <!-- SHEET 09 — DOMAIN 7 -->
+            <article class="sheet" id="sheet-09" data-title="D7 · Security Operations" data-group="CBK Domains" data-code="09">
+                <div class="sheet-inner">
+                    <div class="sheet-header">
+                        <div class="sheet-kicker"><span class="sheet-kicker__code">09</span><span>Domain 7 · Weight 13%</span></div>
+                        <h1 class="sheet-title">Security Operations</h1>
+                        <p class="sheet-lede">Incident response, backups/DR, evidence handling, and change management.</p>
+                    </div>
+
+                    <h2>Incident Response Lifecycle</h2>
+                    <p><strong>Preparation → Detection &amp; Analysis → Containment → Eradication → Recovery → Lessons Learned.</strong> Containment (isolate/stop spread) always comes before eradication (remove root cause).</p>
+
+                    <h2>Backup Trade-off</h2>
+                    <p><strong>Incremental</strong>: fastest to create, slowest to restore (replay every increment in order). <strong>Differential</strong>: slower to create over time, faster to restore.</p>
+
+                    <div class="pattern pattern--important">
+                        <span class="pattern__label">Important</span>
+                        <p>Life safety always outranks asset protection. Fire/emergency exits must fail-<strong>safe</strong> (unlock) on power loss.</p>
+                    </div>
+
+                    <p class="sheet-footnote"><a href="docs.html?file=domains/07-security-operations.md" target="_blank" rel="noopener">Full domain deep-dive →</a> · <a href="#sheet-practice">Test yourself: Domain 7 knowledge check →</a></p>
+                </div>
+            </article>
+
+            <!-- SHEET 10 — DOMAIN 8 -->
+            <article class="sheet" id="sheet-10" data-title="D8 · Software Development Security" data-group="CBK Domains" data-code="10">
+                <div class="sheet-inner">
+                    <div class="sheet-header">
+                        <div class="sheet-kicker"><span class="sheet-kicker__code">10</span><span>Domain 8 · Weight 10%</span></div>
+                        <h1 class="sheet-title">Software Development Security</h1>
+                        <p class="sheet-lede">Secure SDLC, common vulnerability classes, and database security concepts.</p>
+                    </div>
+
+                    <h2>Shift Left</h2>
+                    <p>Move security activities (threat modeling, secure code review, SAST) earlier in the SDLC — toward requirements/design — because defects found in production cost far more to fix.</p>
+
+                    <h2>Aggregation vs. Inference</h2>
+                    <p><strong>Aggregation</strong> combines multiple low-sensitivity pieces into a higher-sensitivity picture. <strong>Inference</strong> deduces a restricted fact from patterns, without ever directly accessing the restricted data.</p>
+
+                    <div class="pattern pattern--tip">
+                        <span class="pattern__label">Tip</span>
+                        <p>The structural fix for SQL injection is <strong>parameterized queries</strong> — they separate code from data entirely, not just filter bad characters.</p>
+                    </div>
+
+                    <p class="sheet-footnote"><a href="docs.html?file=domains/08-software-development-security.md" target="_blank" rel="noopener">Full domain deep-dive →</a> · <a href="#sheet-practice">Test yourself: Domain 8 knowledge check →</a></p>
+                </div>
+            </article>
+
+            <!-- SHEET: OFFICIAL RESOURCES -->
+            <article class="sheet" id="sheet-ref" data-title="Official Resources" data-group="Reference" data-code="REF">
+                <div class="sheet-inner">
+                    <div class="sheet-header">
+                        <div class="sheet-kicker"><span class="sheet-kicker__code">REF</span><span>Reference</span></div>
+                        <h1 class="sheet-title">Study from primary sources first</h1>
+                    </div>
+
+                    <div class="pattern pattern--important">
+                        <span class="pattern__label">Important</span>
+                        <p>📌 Rule: if a third-party guide conflicts with ISC2's current certification page, <strong>trust ISC2's current page</strong> and update this guide.</p>
+                    </div>
+
+                    <h2>Primary ISC2 Sources</h2>
+                    <div class="info-card info-card--flat">
+                        <ul class="resource-list">
+                            <li>📄 <a href="https://www.isc2.org/Certifications/CISSP" target="_blank" rel="noopener">CISSP Certification Page</a></li>
+                            <li>📄 <a href="https://www.isc2.org/certifications/cissp/cissp-certification-exam-outline" target="_blank" rel="noopener">CISSP Certification Exam Outline</a></li>
+                            <li>📄 <a href="https://www.isc2.org/register-for-exam" target="_blank" rel="noopener">Exam Registration</a></li>
+                            <li>📄 <a href="https://isc2chapters.isc2.org/" target="_blank" rel="noopener">ISC2 Community Chapters</a></li>
+                        </ul>
+                    </div>
+
+                    <h2>Repository Study Materials</h2>
+                    <div class="info-card info-card--flat">
+                        <ul class="resource-list" style="line-height: 2.2;">
+                            <li>📁 <a href="docs.html?file=domains/01-security-risk-management.md" target="_blank" rel="noopener">Domain deep-dives</a> — full notes for all 8 domains</li>
+                            <li>📁 <a href="docs.html?file=resources/glossary.md" target="_blank" rel="noopener">Glossary</a>, <a href="docs.html?file=resources/exam-traps.md" target="_blank" rel="noopener">exam traps</a>, <a href="docs.html?file=resources/acronyms.md" target="_blank" rel="noopener">acronym reference</a> and <a href="docs.html?file=resources/mnemonics.md" target="_blank" rel="noopener">mnemonics</a></li>
+                            <li>📁 <a href="docs.html?file=docs/study-plan.md" target="_blank" rel="noopener">8-week study plan</a> and <a href="docs.html?file=docs/exam-overview.md" target="_blank" rel="noopener">exam overview</a></li>
+                            <li>📁 <a href="docs.html?file=docs/key-links.md" target="_blank" rel="noopener">All key links in one place</a></li>
+                        </ul>
+                    </div>
+
+                    <p class="sheet-footnote">ISC2 periodically revises the exam outline and domain weights (last major revision effective April 15, 2024). Verify current figures on the exam outline page above before relying on any specific number for exam-day decisions.</p>
+                </div>
+            </article>
+
+            <!-- SHEET: STUDY COMPANIONS -->
+            <article class="sheet" id="sheet-companions" data-title="Study Companions" data-group="Reference" data-code="C">
+                <div class="sheet-inner">
+                    <div class="sheet-header">
+                        <div class="sheet-kicker"><span class="sheet-kicker__code">C</span><span>Reference</span></div>
+                        <h1 class="sheet-title">Study Companions</h1>
+                        <p class="sheet-lede">Community and official channels for multi-modal study alongside the text-based material on the other sheets.</p>
+                    </div>
+
+                    <h2>Official Channels</h2>
+                    <div class="info-card info-card--flat">
+                        <ul class="resource-list">
+                            <li>📺 <a href="https://www.youtube.com/user/ISC2TV" target="_blank" rel="noopener">ISC2TV — Official ISC2 YouTube Channel</a> — webinars, certification guidance, and member content straight from ISC2</li>
+                            <li>👥 <a href="https://isc2chapters.isc2.org/" target="_blank" rel="noopener">ISC2 Community Chapters</a> — local and virtual chapters for study groups, mentoring, and networking with other candidates and members</li>
+                        </ul>
+                    </div>
+
+                    <div class="pattern pattern--important">
+                        <span class="pattern__label">Important</span>
+                        <p>Third-party CISSP prep videos and channels are everywhere, but quality varies widely and exam mechanics quoted in older videos can be stale. Cross-check anything that surprises you against the <a href="#sheet-ref">Official Resources</a> sheet before trusting it for the exam.</p>
+                    </div>
+
+                    <p class="sheet-footnote">Know a good official CISSP resource that belongs here? Add it — this sheet is meant to grow.</p>
+                </div>
+            </article>
+
+            <!-- SHEET 11 -->
+            <article class="sheet" id="sheet-11" data-title="Exam-Day Checklist" data-group="Exam" data-code="11">
+                <div class="sheet-inner">
+                    <div class="sheet-header">
+                        <div class="sheet-kicker"><span class="sheet-kicker__code">11</span><span>Exam-Day Checklist</span></div>
+                        <h1 class="sheet-title">Exam-Day Checklist</h1>
+                    </div>
+
+                    <h2>24 hours before</h2>
+                    <ul>
+                        <li>✅ Verify the exam format, duration and domain weights on the official ISC2 exam outline page</li>
+                        <li>✅ Confirm testing center location or online proctoring system requirements with Pearson VUE</li>
+                        <li>✅ Confirm your government-issued ID matches your exam registration exactly</li>
+                        <li>✅ Review the Quick Recall table at the bottom of every domain deep-dive</li>
+                        <li>✅ Re-take any domain quiz you previously scored below 8/10 on</li>
+                        <li>✅ Get a full night's sleep — CAT rewards sustained focus over 3 hours</li>
+                    </ul>
+
+                    <h2>At the start</h2>
+                    <ul>
+                        <li>✅ Read every question completely before answering — CAT questions cannot be skipped or revisited</li>
+                        <li>✅ Eliminate obviously wrong answers first, then pick the most complete/appropriate remaining option</li>
+                        <li>✅ Watch for absolutes ("always," "never," "only") as a signal to re-check your choice</li>
+                        <li>✅ Think like a security manager, not a single-tool technician — favor the risk-proportionate answer</li>
+                        <li>✅ Don't try to "pace for 150" — focus on the question in front of you; CAT can end anywhere from 100–150</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- SHEET 12 -->
+            <article class="sheet" id="sheet-12" data-title="Progress Tracker" data-group="Progress" data-code="12">
+                <div class="sheet-inner">
+                    <div class="sheet-header">
+                        <div class="sheet-kicker"><span class="sheet-kicker__code">12</span><span>Progress Tracker</span></div>
+                        <h1 class="sheet-title">Track understanding, not page views</h1>
+                        <p class="sheet-lede">These checks are saved in your browser and drive the progress indicator in the context bar above.</p>
+                    </div>
+
+                    <div class="tracker-box breakout">
+                        <div class="tracker-grid">
+                            <label class="tracker-item"><input type="checkbox" class="progress-checkbox" data-tracker-key="foundation"> Foundation</label>
+                            <label class="tracker-item"><input type="checkbox" class="progress-checkbox" data-tracker-key="d1"> D1 Security &amp; Risk Mgmt</label>
+                            <label class="tracker-item"><input type="checkbox" class="progress-checkbox" data-tracker-key="d2"> D2 Asset Security</label>
+                            <label class="tracker-item"><input type="checkbox" class="progress-checkbox" data-tracker-key="d3"> D3 Security Arch. &amp; Eng.</label>
+                            <label class="tracker-item"><input type="checkbox" class="progress-checkbox" data-tracker-key="d4"> D4 Comms &amp; Network Sec.</label>
+                            <label class="tracker-item"><input type="checkbox" class="progress-checkbox" data-tracker-key="d5"> D5 Identity &amp; Access Mgmt</label>
+                            <label class="tracker-item"><input type="checkbox" class="progress-checkbox" data-tracker-key="d6"> D6 Security Assess. &amp; Testing</label>
+                            <label class="tracker-item"><input type="checkbox" class="progress-checkbox" data-tracker-key="d7"> D7 Security Operations</label>
+                            <label class="tracker-item"><input type="checkbox" class="progress-checkbox" data-tracker-key="d8"> D8 Software Dev. Security</label>
+                            <label class="tracker-item"><input type="checkbox" class="progress-checkbox" data-tracker-key="readiness"> Exam readiness</label>
+                        </div>
+
+                        <div class="tracker-footer">
+                            <div class="tracker-summary">
+                                <div><strong>Checklist:</strong> <span id="progressDisplay">0/10 (0%)</span></div>
+                                <div class="js-quiz-progress-display" style="margin-top: 4px; color: var(--accent);">📊 Quiz: Not started yet</div>
+                            </div>
+                            <button id="resetProgress" class="btn btn-danger">🔄 Reset Progress</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- SHEET: PRACTICE -->
+            <article class="sheet" id="sheet-practice" data-title="Domain Knowledge Checks" data-group="Practice" data-code="Q">
+                <div class="sheet-inner">
+                    <div class="sheet-header">
+                        <div class="sheet-kicker"><span class="sheet-kicker__code">Q</span><span>Practice · Domain Recall</span></div>
+                        <h1 class="sheet-title">🎯 Domain Knowledge Checks</h1>
+                        <p class="sheet-lede">Test your recall across all 8 CBK domains. <span class="js-quiz-progress-display">Quiz: Not started yet</span></p>
+                    </div>
+
+                    <section id="domainQuizzes">
+                        <h2 class="quiz-section-heading">🧠 Domain Knowledge Checks</h2>
+                        <p>80 questions, 10 per domain, testing the vocabulary and mechanics from the <a href="#sheet-03">CBK Domains</a> sheets — not full scenario reasoning, straight domain knowledge. <strong>9–10 correct = domain mastered. Below 7 = go back and re-read.</strong></p>
+
+                        <h3>Domain 1 — Security and Risk Management</h3>
+                        <p class="sheet-footnote">Tests <a href="#sheet-03">03 Security &amp; Risk Management</a> · <a href="docs.html?file=domains/01-security-risk-management.md" target="_blank" rel="noopener">full deep-dive →</a></p>
+
+                        <div class="quiz-card" id="d1-q1">
+                            <div class="quiz-progress"><span>Domain 1 · Question 1 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 10%;"></div></div></div>
+                            <div class="quiz-question">A ransomware attack encrypts a hospital's patient records, making them completely inaccessible to staff. Which element of the CIA triad is most directly violated?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d1q1" value="A"> A) Confidentiality</label>
+                                <label><input type="radio" name="d1q1" value="B"> B) Availability</label>
+                                <label><input type="radio" name="d1q1" value="C"> C) Integrity</label>
+                                <label><input type="radio" name="d1q1" value="D"> D) Non-repudiation</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d1q1', 'B', 'fb-d1-1')">Submit Answer</button>
+                            <div id="fb-d1-1" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Encrypted, inaccessible data is primarily an availability failure, even though ransomware often also threatens confidentiality via exfiltration.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d1-q2">
+                            <div class="quiz-progress"><span>Domain 1 · Question 2 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 20%;"></div></div></div>
+                            <div class="quiz-question">Which of the following best distinguishes a security "standard" from a "baseline"?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d1q2" value="A"> A) A standard is discretionary; a baseline is mandatory</label>
+                                <label><input type="radio" name="d1q2" value="B"> B) A standard is a mandatory rule; a baseline is a minimum reference configuration state to measure systems against</label>
+                                <label><input type="radio" name="d1q2" value="C"> C) A baseline applies only to hardware; a standard applies only to software</label>
+                                <label><input type="radio" name="d1q2" value="D"> D) They are interchangeable terms in most frameworks</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d1q2', 'B', 'fb-d1-2')">Submit Answer</button>
+                            <div id="fb-d1-2" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> A standard is a mandatory rule; a baseline is the minimum configuration state used as a reference point.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d1-q3">
+                            <div class="quiz-progress"><span>Domain 1 · Question 3 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 30%;"></div></div></div>
+                            <div class="quiz-question">An organization purchases cyber insurance to cover the financial impact of a potential data breach. This is an example of which risk treatment strategy?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d1q3" value="A"> A) Mitigation</label>
+                                <label><input type="radio" name="d1q3" value="B"> B) Avoidance</label>
+                                <label><input type="radio" name="d1q3" value="C"> C) Transfer</label>
+                                <label><input type="radio" name="d1q3" value="D"> D) Acceptance</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d1q3', 'C', 'fb-d1-3')">Submit Answer</button>
+                            <div id="fb-d1-3" class="feedback-text"><strong>✅ Correct answer: C</strong><br><em>Why:</em> Insurance changes who bears the financial impact — it does not reduce the likelihood of the event, so it is transfer, not mitigation.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d1-q4">
+                            <div class="quiz-progress"><span>Domain 1 · Question 4 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 40%;"></div></div></div>
+                            <div class="quiz-question">An asset has a value of $200,000. A specific threat is expected to destroy 25% of the asset's value each time it occurs, and is expected to occur twice per year. What is the ALE?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d1q4" value="A"> A) $50,000</label>
+                                <label><input type="radio" name="d1q4" value="B"> B) $100,000</label>
+                                <label><input type="radio" name="d1q4" value="C"> C) $25,000</label>
+                                <label><input type="radio" name="d1q4" value="D"> D) $200,000</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d1q4', 'B', 'fb-d1-4')">Submit Answer</button>
+                            <div id="fb-d1-4" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> SLE = AV × EF = $200,000 × 0.25 = $50,000; ALE = SLE × ARO = $50,000 × 2 = $100,000.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d1-q5">
+                            <div class="quiz-progress"><span>Domain 1 · Question 5 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 50%;"></div></div></div>
+                            <div class="quiz-question">A company backs up its database nightly at midnight with no other replication. A failure occurs at 6:00 PM. What is the effective RPO exposure in this scenario?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d1q5" value="A"> A) 0 hours</label>
+                                <label><input type="radio" name="d1q5" value="B"> B) Up to 18 hours</label>
+                                <label><input type="radio" name="d1q5" value="C"> C) 24 hours exactly, always</label>
+                                <label><input type="radio" name="d1q5" value="D"> D) RPO does not apply to database failures</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d1q5', 'B', 'fb-d1-5')">Submit Answer</button>
+                            <div id="fb-d1-5" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> With only nightly backups and no replication, up to a full day (up to 18 hours since the last midnight backup) of data could be lost.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d1-q6">
+                            <div class="quiz-progress"><span>Domain 1 · Question 6 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 60%;"></div></div></div>
+                            <div class="quiz-question">Which threat modeling methodology categorizes threats using Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privilege?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d1q6" value="A"> A) PASTA</label>
+                                <label><input type="radio" name="d1q6" value="B"> B) DREAD</label>
+                                <label><input type="radio" name="d1q6" value="C"> C) STRIDE</label>
+                                <label><input type="radio" name="d1q6" value="D"> D) MITRE ATT&amp;CK</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d1q6', 'C', 'fb-d1-6')">Submit Answer</button>
+                            <div id="fb-d1-6" class="feedback-text"><strong>✅ Correct answer: C</strong><br><em>Why:</em> STRIDE's six categories spell out Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d1-q7">
+                            <div class="quiz-progress"><span>Domain 1 · Question 7 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 70%;"></div></div></div>
+                            <div class="quiz-question">Which of the four forms of intellectual property protection has no fixed expiration date but loses all protection the moment it is disclosed publicly?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d1q7" value="A"> A) Copyright</label>
+                                <label><input type="radio" name="d1q7" value="B"> B) Patent</label>
+                                <label><input type="radio" name="d1q7" value="C"> C) Trademark</label>
+                                <label><input type="radio" name="d1q7" value="D"> D) Trade secret</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d1q7', 'D', 'fb-d1-7')">Submit Answer</button>
+                            <div id="fb-d1-7" class="feedback-text"><strong>✅ Correct answer: D</strong><br><em>Why:</em> Trade secrets last exactly as long as secrecy is maintained — no fixed term, but no protection once disclosed.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d1-q8">
+                            <div class="quiz-progress"><span>Domain 1 · Question 8 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 80%;"></div></div></div>
+                            <div class="quiz-question">Under the (ISC)² Code of Ethics, when two canons appear to conflict in a given scenario, which canon takes priority?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d1q8" value="A"> A) The canon listed last</label>
+                                <label><input type="radio" name="d1q8" value="B"> B) Advance and protect the profession, always</label>
+                                <label><input type="radio" name="d1q8" value="C"> C) The lower-numbered (higher-priority) canon</label>
+                                <label><input type="radio" name="d1q8" value="D"> D) Whichever canon the individual professional personally finds most important</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d1q8', 'C', 'fb-d1-8')">Submit Answer</button>
+                            <div id="fb-d1-8" class="feedback-text"><strong>✅ Correct answer: C</strong><br><em>Why:</em> The canons are explicitly ranked; the lower-numbered canon always takes precedence in a conflict.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d1-q9">
+                            <div class="quiz-progress"><span>Domain 1 · Question 9 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 90%;"></div></div></div>
+                            <div class="quiz-question">A SOC 2 Type II report differs from a SOC 2 Type I report in that it:</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d1q9" value="A"> A) Covers only financial controls</label>
+                                <label><input type="radio" name="d1q9" value="B"> B) Assesses control design and operating effectiveness over a period of time, rather than at a single point in time</label>
+                                <label><input type="radio" name="d1q9" value="C"> C) Is intended only for public release</label>
+                                <label><input type="radio" name="d1q9" value="D"> D) Does not require an independent auditor</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d1q9', 'B', 'fb-d1-9')">Submit Answer</button>
+                            <div id="fb-d1-9" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Type II adds operating effectiveness testing over a review period (commonly 6–12 months), not just a design snapshot.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d1-q10">
+                            <div class="quiz-progress"><span>Domain 1 · Question 10 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 100%;"></div></div></div>
+                            <div class="quiz-question">Which legal system relies primarily on case law and precedent, and includes criminal, civil/tort, and administrative branches?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d1q10" value="A"> A) Civil law</label>
+                                <label><input type="radio" name="d1q10" value="B"> B) Common law</label>
+                                <label><input type="radio" name="d1q10" value="C"> C) Religious law</label>
+                                <label><input type="radio" name="d1q10" value="D"> D) Customary law</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d1q10', 'B', 'fb-d1-10')">Submit Answer</button>
+                            <div id="fb-d1-10" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Common law relies on precedent and has criminal, civil, and administrative branches; civil law systems rely primarily on codified statutes.</div>
+                        </div>
+
+                        <h3>Domain 2 — Asset Security</h3>
+                        <p class="sheet-footnote">Tests <a href="#sheet-04">04 Asset Security</a> · <a href="docs.html?file=domains/02-asset-security.md" target="_blank" rel="noopener">full deep-dive →</a></p>
+
+                        <div class="quiz-card" id="d2-q1">
+                            <div class="quiz-progress"><span>Domain 2 · Question 1 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 10%;"></div></div></div>
+                            <div class="quiz-question">Who is ultimately accountable for assigning a data classification level and bears liability for its protection?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d2q1" value="A"> A) Data Custodian</label>
+                                <label><input type="radio" name="d2q1" value="B"> B) Data Owner</label>
+                                <label><input type="radio" name="d2q1" value="C"> C) Data Processor</label>
+                                <label><input type="radio" name="d2q1" value="D"> D) End User</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d2q1', 'B', 'fb-d2-1')">Submit Answer</button>
+                            <div id="fb-d2-1" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> The Data Owner is accountable for classification and ultimate liability, even though the Custodian does the technical work.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d2-q2">
+                            <div class="quiz-progress"><span>Domain 2 · Question 2 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 20%;"></div></div></div>
+                            <div class="quiz-question">Under GDPR, which role determines the purpose and means of processing personal data?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d2q2" value="A"> A) Data Controller</label>
+                                <label><input type="radio" name="d2q2" value="B"> B) Data Processor</label>
+                                <label><input type="radio" name="d2q2" value="C"> C) Data Custodian</label>
+                                <label><input type="radio" name="d2q2" value="D"> D) Data Steward</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d2q2', 'A', 'fb-d2-2')">Submit Answer</button>
+                            <div id="fb-d2-2" class="feedback-text"><strong>✅ Correct answer: A</strong><br><em>Why:</em> The Controller determines purpose and means of processing; the Processor acts on the Controller's behalf.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d2-q3">
+                            <div class="quiz-progress"><span>Domain 2 · Question 3 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 30%;"></div></div></div>
+                            <div class="quiz-question">Which sanitization method is generally ineffective on a solid-state drive (SSD) because it relies on disrupting magnetic domains?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d2q3" value="A"> A) Cryptographic erase</label>
+                                <label><input type="radio" name="d2q3" value="B"> B) Physical destruction</label>
+                                <label><input type="radio" name="d2q3" value="C"> C) Degaussing</label>
+                                <label><input type="radio" name="d2q3" value="D"> D) Multi-pass overwrite</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d2q3', 'C', 'fb-d2-3')">Submit Answer</button>
+                            <div id="fb-d2-3" class="feedback-text"><strong>✅ Correct answer: C</strong><br><em>Why:</em> Degaussing disrupts magnetic domains — SSDs are not magnetic media, so degaussing does not reliably sanitize them.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d2-q4">
+                            <div class="quiz-progress"><span>Domain 2 · Question 4 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 40%;"></div></div></div>
+                            <div class="quiz-question">Sensitive data being actively processed in a server's RAM is best described as being in which state?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d2q4" value="A"> A) Data at rest</label>
+                                <label><input type="radio" name="d2q4" value="B"> B) Data in transit</label>
+                                <label><input type="radio" name="d2q4" value="C"> C) Data in use</label>
+                                <label><input type="radio" name="d2q4" value="D"> D) Data in archive</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d2q4', 'C', 'fb-d2-4')">Submit Answer</button>
+                            <div id="fb-d2-4" class="feedback-text"><strong>✅ Correct answer: C</strong><br><em>Why:</em> Data actively in CPU/RAM is data in use, distinct from at-rest (stored) or in-transit (network) states.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d2-q5">
+                            <div class="quiz-progress"><span>Domain 2 · Question 5 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 50%;"></div></div></div>
+                            <div class="quiz-question">An organization removes several controls from a NIST SP 800-53 baseline that don't apply to its environment. This activity is best described as:</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d2q5" value="A"> A) Tailoring</label>
+                                <label><input type="radio" name="d2q5" value="B"> B) Scoping</label>
+                                <label><input type="radio" name="d2q5" value="C"> C) Classification</label>
+                                <label><input type="radio" name="d2q5" value="D"> D) Remanence reduction</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d2q5', 'B', 'fb-d2-5')">Submit Answer</button>
+                            <div id="fb-d2-5" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Removing inapplicable controls from a baseline is scoping; adjusting/adding controls to fit context is tailoring.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d2-q6">
+                            <div class="quiz-progress"><span>Domain 2 · Question 6 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 60%;"></div></div></div>
+                            <div class="quiz-question">Which of the following is the ONLY acceptable disposal method for media holding the organization's highest-sensitivity data?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d2q6" value="A"> A) Clear (single-pass overwrite)</label>
+                                <label><input type="radio" name="d2q6" value="B"> B) Purge</label>
+                                <label><input type="radio" name="d2q6" value="C"> C) Physical destruction</label>
+                                <label><input type="radio" name="d2q6" value="D"> D) Formatting the drive</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d2q6', 'C', 'fb-d2-6')">Submit Answer</button>
+                            <div id="fb-d2-6" class="feedback-text"><strong>✅ Correct answer: C</strong><br><em>Why:</em> Physical destruction is the only irreversible method acceptable for the highest sensitivity levels.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d2-q7">
+                            <div class="quiz-progress"><span>Domain 2 · Question 7 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 70%;"></div></div></div>
+                            <div class="quiz-question">A day-to-day IT administrator applies backup schedules and access controls exactly as specified by policy, without setting the policy themselves. This role is best described as:</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d2q7" value="A"> A) Data Owner</label>
+                                <label><input type="radio" name="d2q7" value="B"> B) Data Custodian</label>
+                                <label><input type="radio" name="d2q7" value="C"> C) Data Controller</label>
+                                <label><input type="radio" name="d2q7" value="D"> D) Data Subject</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d2q7', 'B', 'fb-d2-7')">Submit Answer</button>
+                            <div id="fb-d2-7" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Implementing policy day-to-day (backups, access) without setting it is the Custodian role.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d2-q8">
+                            <div class="quiz-progress"><span>Domain 2 · Question 8 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 80%;"></div></div></div>
+                            <div class="quiz-question">Which control most directly enforces confidentiality for data at rest?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d2q8" value="A"> A) Digital signature</label>
+                                <label><input type="radio" name="d2q8" value="B"> B) Full-disk or volume encryption</label>
+                                <label><input type="radio" name="d2q8" value="C"> C) Intrusion detection system</label>
+                                <label><input type="radio" name="d2q8" value="D"> D) Access recertification</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d2q8', 'B', 'fb-d2-8')">Submit Answer</button>
+                            <div id="fb-d2-8" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Encryption at rest directly enforces confidentiality for stored data.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d2-q9">
+                            <div class="quiz-progress"><span>Domain 2 · Question 9 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 90%;"></div></div></div>
+                            <div class="quiz-question">An organization's retention policy must reconcile all of the following EXCEPT:</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d2q9" value="A"> A) Legal and regulatory minimum retention requirements</label>
+                                <label><input type="radio" name="d2q9" value="B"> B) Business need for the data</label>
+                                <label><input type="radio" name="d2q9" value="C"> C) Storage cost and breach blast-radius risk of retaining data longer than necessary</label>
+                                <label><input type="radio" name="d2q9" value="D"> D) The personal preference of whichever employee created the file</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d2q9', 'D', 'fb-d2-9')">Submit Answer</button>
+                            <div id="fb-d2-9" class="feedback-text"><strong>✅ Correct answer: D</strong><br><em>Why:</em> Retention policy is a governance decision balancing legal, business, and risk factors — not individual employee preference.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d2-q10">
+                            <div class="quiz-progress"><span>Domain 2 · Question 10 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 100%;"></div></div></div>
+                            <div class="quiz-question">Residual data that remains on media after a file is "deleted" through normal OS deletion is known as:</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d2q10" value="A"> A) Data remanence</label>
+                                <label><input type="radio" name="d2q10" value="B"> B) Data aggregation</label>
+                                <label><input type="radio" name="d2q10" value="C"> C) Data custodianship</label>
+                                <label><input type="radio" name="d2q10" value="D"> D) Data tailoring</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d2q10', 'A', 'fb-d2-10')">Submit Answer</button>
+                            <div id="fb-d2-10" class="feedback-text"><strong>✅ Correct answer: A</strong><br><em>Why:</em> Data remanence is residual data left behind after deletion, which is why proper sanitization/destruction is required.</div>
+                        </div>
+
+                        <h3>Domain 3 — Security Architecture and Engineering</h3>
+                        <p class="sheet-footnote">Tests <a href="#sheet-05">05 Security Architecture &amp; Engineering</a> · <a href="docs.html?file=domains/03-security-architecture-engineering.md" target="_blank" rel="noopener">full deep-dive →</a></p>
+
+                        <div class="quiz-card" id="d3-q1">
+                            <div class="quiz-progress"><span>Domain 3 · Question 1 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 10%;"></div></div></div>
+                            <div class="quiz-question">Which security model enforces "no read up, no write down" to protect confidentiality?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d3q1" value="A"> A) Biba</label>
+                                <label><input type="radio" name="d3q1" value="B"> B) Bell-LaPadula</label>
+                                <label><input type="radio" name="d3q1" value="C"> C) Clark-Wilson</label>
+                                <label><input type="radio" name="d3q1" value="D"> D) Brewer-Nash</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d3q1', 'B', 'fb-d3-1')">Submit Answer</button>
+                            <div id="fb-d3-1" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Bell-LaPadula: no read up, no write down — protects confidentiality.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d3-q2">
+                            <div class="quiz-progress"><span>Domain 3 · Question 2 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 20%;"></div></div></div>
+                            <div class="quiz-question">Which security model enforces "no write up, no read down" to protect integrity?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d3q2" value="A"> A) Biba</label>
+                                <label><input type="radio" name="d3q2" value="B"> B) Bell-LaPadula</label>
+                                <label><input type="radio" name="d3q2" value="C"> C) Graham-Denning</label>
+                                <label><input type="radio" name="d3q2" value="D"> D) Take-Grant</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d3q2', 'A', 'fb-d3-2')">Submit Answer</button>
+                            <div id="fb-d3-2" class="feedback-text"><strong>✅ Correct answer: A</strong><br><em>Why:</em> Biba: no write up, no read down — protects integrity, the mirror of Bell-LaPadula.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d3-q3">
+                            <div class="quiz-progress"><span>Domain 3 · Question 3 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 30%;"></div></div></div>
+                            <div class="quiz-question">Which model uses well-formed transactions and separation of duties, requiring subjects to interact with objects only through a constrained interface?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d3q3" value="A"> A) Bell-LaPadula</label>
+                                <label><input type="radio" name="d3q3" value="B"> B) Brewer-Nash</label>
+                                <label><input type="radio" name="d3q3" value="C"> C) Clark-Wilson</label>
+                                <label><input type="radio" name="d3q3" value="D"> D) Biba</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d3q3', 'C', 'fb-d3-3')">Submit Answer</button>
+                            <div id="fb-d3-3" class="feedback-text"><strong>✅ Correct answer: C</strong><br><em>Why:</em> Clark-Wilson enforces well-formed transactions and separation of duties via a constrained interface.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d3-q4">
+                            <div class="quiz-progress"><span>Domain 3 · Question 4 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 40%;"></div></div></div>
+                            <div class="quiz-question">A consultant who has accessed one client's confidential data is automatically blocked from accessing a competing client's data. This is an example of which model?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d3q4" value="A"> A) Bell-LaPadula</label>
+                                <label><input type="radio" name="d3q4" value="B"> B) Brewer-Nash (Chinese Wall)</label>
+                                <label><input type="radio" name="d3q4" value="C"> C) Biba</label>
+                                <label><input type="radio" name="d3q4" value="D"> D) Graham-Denning</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d3q4', 'B', 'fb-d3-4')">Submit Answer</button>
+                            <div id="fb-d3-4" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Brewer-Nash (Chinese Wall) dynamically blocks access based on conflict of interest with prior accesses.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d3-q5">
+                            <div class="quiz-progress"><span>Domain 3 · Question 5 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 50%;"></div></div></div>
+                            <div class="quiz-question">In Common Criteria (ISO 15408), what does an Evaluation Assurance Level (EAL) range from?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d3q5" value="A"> A) 0 to 5</label>
+                                <label><input type="radio" name="d3q5" value="B"> B) 1 to 7</label>
+                                <label><input type="radio" name="d3q5" value="C"> C) A to D</label>
+                                <label><input type="radio" name="d3q5" value="D"> D) I to IV</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d3q5', 'B', 'fb-d3-5')">Submit Answer</button>
+                            <div id="fb-d3-5" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Common Criteria EALs range from 1 (lowest) to 7 (highest).</div>
+                        </div>
+
+                        <div class="quiz-card" id="d3-q6">
+                            <div class="quiz-progress"><span>Domain 3 · Question 6 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 60%;"></div></div></div>
+                            <div class="quiz-question">To create a digital signature, which key does the sender use to encrypt the message hash?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d3q6" value="A"> A) The sender's public key</label>
+                                <label><input type="radio" name="d3q6" value="B"> B) The recipient's public key</label>
+                                <label><input type="radio" name="d3q6" value="C"> C) The sender's private key</label>
+                                <label><input type="radio" name="d3q6" value="D"> D) The recipient's private key</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d3q6', 'C', 'fb-d3-6')">Submit Answer</button>
+                            <div id="fb-d3-6" class="feedback-text"><strong>✅ Correct answer: C</strong><br><em>Why:</em> The sender signs with their own private key so anyone can verify authenticity using the sender's public key.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d3-q7">
+                            <div class="quiz-progress"><span>Domain 3 · Question 7 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 70%;"></div></div></div>
+                            <div class="quiz-question">To encrypt a message so that only the intended recipient can read it, which key should be used?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d3q7" value="A"> A) The sender's private key</label>
+                                <label><input type="radio" name="d3q7" value="B"> B) The recipient's public key</label>
+                                <label><input type="radio" name="d3q7" value="C"> C) The sender's public key</label>
+                                <label><input type="radio" name="d3q7" value="D"> D) A shared symmetric key sent in cleartext</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d3q7', 'B', 'fb-d3-7')">Submit Answer</button>
+                            <div id="fb-d3-7" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Encrypting with the recipient's public key ensures only the recipient's private key can decrypt it.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d3-q8">
+                            <div class="quiz-progress"><span>Domain 3 · Question 8 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 80%;"></div></div></div>
+                            <div class="quiz-question">Which protocol provides real-time certificate revocation checking, replacing the need to download and parse a full CRL?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d3q8" value="A"> A) OCSP</label>
+                                <label><input type="radio" name="d3q8" value="B"> B) RA</label>
+                                <label><input type="radio" name="d3q8" value="C"> C) AH</label>
+                                <label><input type="radio" name="d3q8" value="D"> D) TCB</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d3q8', 'A', 'fb-d3-8')">Submit Answer</button>
+                            <div id="fb-d3-8" class="feedback-text"><strong>✅ Correct answer: A</strong><br><em>Why:</em> OCSP provides real-time revocation status, unlike the slower, batch-oriented CRL.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d3-q9">
+                            <div class="quiz-progress"><span>Domain 3 · Question 9 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 90%;"></div></div></div>
+                            <div class="quiz-question">Which of the following best describes the Trusted Computing Base (TCB)?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d3q9" value="A"> A) A public cloud provider's shared infrastructure</label>
+                                <label><input type="radio" name="d3q9" value="B"> B) All hardware, firmware, and software that enforces the system's security policy</label>
+                                <label><input type="radio" name="d3q9" value="C"> C) A list of all approved vendors</label>
+                                <label><input type="radio" name="d3q9" value="D"> D) The organization's incident response team</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d3q9', 'B', 'fb-d3-9')">Submit Answer</button>
+                            <div id="fb-d3-9" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> The TCB is everything that enforces the security policy — hardware, firmware, and software.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d3-q10">
+                            <div class="quiz-progress"><span>Domain 3 · Question 10 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 100%;"></div></div></div>
+                            <div class="quiz-question">For a Class C (electrical) fire, which suppression approach is correct?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d3q10" value="A"> A) Water</label>
+                                <label><input type="radio" name="d3q10" value="B"> B) A non-conductive agent such as CO2 or a clean agent</label>
+                                <label><input type="radio" name="d3q10" value="C"> C) Foam</label>
+                                <label><input type="radio" name="d3q10" value="D"> D) Sand only</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d3q10', 'B', 'fb-d3-10')">Submit Answer</button>
+                            <div id="fb-d3-10" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Electrical fires require a non-conductive suppressant; water conducts electricity and creates a shock/spread hazard.</div>
+                        </div>
+
+                        <h3>Domain 4 — Communication and Network Security</h3>
+                        <p class="sheet-footnote">Tests <a href="#sheet-06">06 Communication &amp; Network Security</a> · <a href="docs.html?file=domains/04-communication-network-security.md" target="_blank" rel="noopener">full deep-dive →</a></p>
+
+                        <div class="quiz-card" id="d4-q1">
+                            <div class="quiz-progress"><span>Domain 4 · Question 1 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 10%;"></div></div></div>
+                            <div class="quiz-question">A SYN flood attack exploits which protocol's connection-establishment process?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d4q1" value="A"> A) UDP</label>
+                                <label><input type="radio" name="d4q1" value="B"> B) ICMP</label>
+                                <label><input type="radio" name="d4q1" value="C"> C) TCP</label>
+                                <label><input type="radio" name="d4q1" value="D"> D) ARP</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d4q1', 'C', 'fb-d4-1')">Submit Answer</button>
+                            <div id="fb-d4-1" class="feedback-text"><strong>✅ Correct answer: C</strong><br><em>Why:</em> SYN floods exploit TCP's three-way handshake by leaving connections half-open; UDP has no handshake to exploit this way.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d4-q2">
+                            <div class="quiz-progress"><span>Domain 4 · Question 2 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 20%;"></div></div></div>
+                            <div class="quiz-question">Which OSI layer do switches primarily operate at, forwarding traffic based on MAC address?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d4q2" value="A"> A) Layer 1</label>
+                                <label><input type="radio" name="d4q2" value="B"> B) Layer 2</label>
+                                <label><input type="radio" name="d4q2" value="C"> C) Layer 3</label>
+                                <label><input type="radio" name="d4q2" value="D"> D) Layer 4</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d4q2', 'B', 'fb-d4-2')">Submit Answer</button>
+                            <div id="fb-d4-2" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Switches forward by MAC address at Layer 2 (Data Link).</div>
+                        </div>
+
+                        <div class="quiz-card" id="d4-q3">
+                            <div class="quiz-progress"><span>Domain 4 · Question 3 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 30%;"></div></div></div>
+                            <div class="quiz-question">Which network segment sits between two firewalls and hosts public-facing services, isolating them from the internal network?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d4q3" value="A"> A) VLAN</label>
+                                <label><input type="radio" name="d4q3" value="B"> B) DMZ</label>
+                                <label><input type="radio" name="d4q3" value="C"> C) VPN concentrator</label>
+                                <label><input type="radio" name="d4q3" value="D"> D) Intranet</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d4q3', 'B', 'fb-d4-3')">Submit Answer</button>
+                            <div id="fb-d4-3" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> A DMZ, bounded by two firewalls, isolates public-facing services from the internal network.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d4-q4">
+                            <div class="quiz-progress"><span>Domain 4 · Question 4 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 40%;"></div></div></div>
+                            <div class="quiz-question">Which IPsec component provides confidentiality in addition to integrity and authentication?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d4q4" value="A"> A) AH (Authentication Header)</label>
+                                <label><input type="radio" name="d4q4" value="B"> B) ESP (Encapsulating Security Payload)</label>
+                                <label><input type="radio" name="d4q4" value="C"> C) IKE Phase 1 only</label>
+                                <label><input type="radio" name="d4q4" value="D"> D) SNMP</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d4q4', 'B', 'fb-d4-4')">Submit Answer</button>
+                            <div id="fb-d4-4" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> ESP provides confidentiality (encryption) plus integrity/authentication; AH provides integrity/authentication only, no encryption.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d4-q5">
+                            <div class="quiz-progress"><span>Domain 4 · Question 5 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 50%;"></div></div></div>
+                            <div class="quiz-question">Which IPsec mode encrypts the entire original packet and re-encapsulates it, typically used for site-to-site VPNs?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d4q5" value="A"> A) Transport mode</label>
+                                <label><input type="radio" name="d4q5" value="B"> B) Tunnel mode</label>
+                                <label><input type="radio" name="d4q5" value="C"> C) Broadcast mode</label>
+                                <label><input type="radio" name="d4q5" value="D"> D) Promiscuous mode</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d4q5', 'B', 'fb-d4-5')">Submit Answer</button>
+                            <div id="fb-d4-5" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Tunnel mode encrypts and re-encapsulates the entire original packet, standard for site-to-site VPNs.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d4-q6">
+                            <div class="quiz-progress"><span>Domain 4 · Question 6 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 60%;"></div></div></div>
+                            <div class="quiz-question">Which current wireless security standard replaces the WPA2 PSK four-way handshake with SAE (Simultaneous Authentication of Equals)?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d4q6" value="A"> A) WEP</label>
+                                <label><input type="radio" name="d4q6" value="B"> B) WPA</label>
+                                <label><input type="radio" name="d4q6" value="C"> C) WPA2</label>
+                                <label><input type="radio" name="d4q6" value="D"> D) WPA3</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d4q6', 'D', 'fb-d4-6')">Submit Answer</button>
+                            <div id="fb-d4-6" class="feedback-text"><strong>✅ Correct answer: D</strong><br><em>Why:</em> WPA3 introduces SAE, replacing the vulnerable WPA2 PSK handshake and adding forward secrecy.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d4-q7">
+                            <div class="quiz-progress"><span>Domain 4 · Question 7 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 70%;"></div></div></div>
+                            <div class="quiz-question">An attacker forges ARP replies on a local segment to redirect traffic through their own machine. This is:</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d4q7" value="A"> A) DNS poisoning</label>
+                                <label><input type="radio" name="d4q7" value="B"> B) ARP spoofing</label>
+                                <label><input type="radio" name="d4q7" value="C"> C) SYN flood</label>
+                                <label><input type="radio" name="d4q7" value="D"> D) Smurf attack</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d4q7', 'B', 'fb-d4-7')">Submit Answer</button>
+                            <div id="fb-d4-7" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Forging ARP replies to redirect Layer 2 traffic is ARP spoofing.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d4-q8">
+                            <div class="quiz-progress"><span>Domain 4 · Question 8 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 80%;"></div></div></div>
+                            <div class="quiz-question">Which security principle holds that no device or user should be trusted by network location alone, and every request must be verified regardless of source?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d4q8" value="A"> A) Defense in depth</label>
+                                <label><input type="radio" name="d4q8" value="B"> B) Zero trust</label>
+                                <label><input type="radio" name="d4q8" value="C"> C) Security through obscurity</label>
+                                <label><input type="radio" name="d4q8" value="D"> D) Least functionality</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d4q8', 'B', 'fb-d4-8')">Submit Answer</button>
+                            <div id="fb-d4-8" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Zero trust requires verification of every request regardless of network location, rather than trusting "inside the perimeter."</div>
+                        </div>
+
+                        <div class="quiz-card" id="d4-q9">
+                            <div class="quiz-progress"><span>Domain 4 · Question 9 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 90%;"></div></div></div>
+                            <div class="quiz-question">Which protocol should replace Telnet to provide encrypted remote administrative access?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d4q9" value="A"> A) FTP</label>
+                                <label><input type="radio" name="d4q9" value="B"> B) SSH</label>
+                                <label><input type="radio" name="d4q9" value="C"> C) SNMP v1</label>
+                                <label><input type="radio" name="d4q9" value="D"> D) HTTP</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d4q9', 'B', 'fb-d4-9')">Submit Answer</button>
+                            <div id="fb-d4-9" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> SSH encrypts remote administrative sessions, replacing cleartext Telnet.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d4-q10">
+                            <div class="quiz-progress"><span>Domain 4 · Question 10 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 100%;"></div></div></div>
+                            <div class="quiz-question">Which network architecture concept separates the control plane (routing decisions) from the data plane (packet forwarding) to enable centralized, programmable policy?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d4q10" value="A"> A) VLAN tagging</label>
+                                <label><input type="radio" name="d4q10" value="B"> B) Software-Defined Networking (SDN)</label>
+                                <label><input type="radio" name="d4q10" value="C"> C) NAT</label>
+                                <label><input type="radio" name="d4q10" value="D"> D) Spanning Tree Protocol</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d4q10', 'B', 'fb-d4-10')">Submit Answer</button>
+                            <div id="fb-d4-10" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> SDN centralizes control-plane decisions separately from the data plane's packet forwarding.</div>
+                        </div>
+
+                        <h3>Domain 5 — Identity and Access Management (IAM)</h3>
+                        <p class="sheet-footnote">Tests <a href="#sheet-07">07 Identity &amp; Access Management</a> · <a href="docs.html?file=domains/05-identity-access-management.md" target="_blank" rel="noopener">full deep-dive →</a></p>
+
+                        <div class="quiz-card" id="d5-q1">
+                            <div class="quiz-progress"><span>Domain 5 · Question 1 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 10%;"></div></div></div>
+                            <div class="quiz-question">Put the IAAA steps in the correct order.</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d5q1" value="A"> A) Authorization, Identification, Authentication, Accountability</label>
+                                <label><input type="radio" name="d5q1" value="B"> B) Identification, Authentication, Authorization, Accountability</label>
+                                <label><input type="radio" name="d5q1" value="C"> C) Authentication, Identification, Accountability, Authorization</label>
+                                <label><input type="radio" name="d5q1" value="D"> D) Accountability, Identification, Authentication, Authorization</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d5q1', 'B', 'fb-d5-1')">Submit Answer</button>
+                            <div id="fb-d5-1" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> IAAA order is Identification, Authentication, Authorization, Accountability.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d5-q2">
+                            <div class="quiz-progress"><span>Domain 5 · Question 2 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 20%;"></div></div></div>
+                            <div class="quiz-question">A user logs in with both a password and a separately memorized PIN. Does this satisfy true multi-factor authentication?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d5q2" value="A"> A) Yes, because two credentials are required</label>
+                                <label><input type="radio" name="d5q2" value="B"> B) No, because both factors are "something you know" — the same category</label>
+                                <label><input type="radio" name="d5q2" value="C"> C) Yes, because a PIN is a possession factor</label>
+                                <label><input type="radio" name="d5q2" value="D"> D) No, MFA always requires biometrics</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d5q2', 'B', 'fb-d5-2')">Submit Answer</button>
+                            <div id="fb-d5-2" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Both a password and a PIN are "something you know" — true MFA requires factors from different categories.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d5-q3">
+                            <div class="quiz-progress"><span>Domain 5 · Question 3 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 30%;"></div></div></div>
+                            <div class="quiz-question">In biometric systems, which error type occurs when an impostor is incorrectly granted access?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d5q3" value="A"> A) FRR (False Rejection Rate)</label>
+                                <label><input type="radio" name="d5q3" value="B"> B) FAR (False Acceptance Rate)</label>
+                                <label><input type="radio" name="d5q3" value="C"> C) CER (Crossover Error Rate)</label>
+                                <label><input type="radio" name="d5q3" value="D"> D) MTBF</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d5q3', 'B', 'fb-d5-3')">Submit Answer</button>
+                            <div id="fb-d5-3" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> FAR (Type II error) is an impostor being incorrectly accepted — the more security-critical error.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d5-q4">
+                            <div class="quiz-progress"><span>Domain 5 · Question 4 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 40%;"></div></div></div>
+                            <div class="quiz-question">Which access control model enforces access based on system-assigned labels/clearances that the object owner cannot override?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d5q4" value="A"> A) DAC</label>
+                                <label><input type="radio" name="d5q4" value="B"> B) RBAC</label>
+                                <label><input type="radio" name="d5q4" value="C"> C) MAC</label>
+                                <label><input type="radio" name="d5q4" value="D"> D) ABAC</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d5q4', 'C', 'fb-d5-4')">Submit Answer</button>
+                            <div id="fb-d5-4" class="feedback-text"><strong>✅ Correct answer: C</strong><br><em>Why:</em> MAC enforces access via system-assigned labels/clearance that the owner cannot override.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d5-q5">
+                            <div class="quiz-progress"><span>Domain 5 · Question 5 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 50%;"></div></div></div>
+                            <div class="quiz-question">Which access control model evaluates real-time attributes such as time of day, device posture, and location to make a dynamic access decision?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d5q5" value="A"> A) DAC</label>
+                                <label><input type="radio" name="d5q5" value="B"> B) MAC</label>
+                                <label><input type="radio" name="d5q5" value="C"> C) RBAC</label>
+                                <label><input type="radio" name="d5q5" value="D"> D) ABAC</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d5q5', 'D', 'fb-d5-5')">Submit Answer</button>
+                            <div id="fb-d5-5" class="feedback-text"><strong>✅ Correct answer: D</strong><br><em>Why:</em> ABAC evaluates real-time attributes of subject, object, and environment to make dynamic decisions.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d5-q6">
+                            <div class="quiz-progress"><span>Domain 5 · Question 6 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 60%;"></div></div></div>
+                            <div class="quiz-question">OAuth 2.0 is primarily a protocol for:</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d5q6" value="A"> A) Authentication (proving identity)</label>
+                                <label><input type="radio" name="d5q6" value="B"> B) Delegated authorization (granting access to a resource without sharing credentials)</label>
+                                <label><input type="radio" name="d5q6" value="C"> C) Encrypting data at rest</label>
+                                <label><input type="radio" name="d5q6" value="D"> D) Network segmentation</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d5q6', 'B', 'fb-d5-6')">Submit Answer</button>
+                            <div id="fb-d5-6" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> OAuth 2.0 grants delegated authorization to access a resource, without directly asserting identity.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d5-q7">
+                            <div class="quiz-progress"><span>Domain 5 · Question 7 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 70%;"></div></div></div>
+                            <div class="quiz-question">Which protocol adds an identity/authentication layer on top of OAuth 2.0?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d5q7" value="A"> A) SAML</label>
+                                <label><input type="radio" name="d5q7" value="B"> B) Kerberos</label>
+                                <label><input type="radio" name="d5q7" value="C"> C) OpenID Connect (OIDC)</label>
+                                <label><input type="radio" name="d5q7" value="D"> D) RADIUS</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d5q7', 'C', 'fb-d5-7')">Submit Answer</button>
+                            <div id="fb-d5-7" class="feedback-text"><strong>✅ Correct answer: C</strong><br><em>Why:</em> OpenID Connect (OIDC) adds an authentication/identity layer on top of OAuth 2.0's authorization framework.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d5-q8">
+                            <div class="quiz-progress"><span>Domain 5 · Question 8 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 80%;"></div></div></div>
+                            <div class="quiz-question">In Kerberos, what does the KDC issue after a user successfully authenticates for the first time?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d5q8" value="A"> A) A digital certificate</label>
+                                <label><input type="radio" name="d5q8" value="B"> B) A Ticket Granting Ticket (TGT)</label>
+                                <label><input type="radio" name="d5q8" value="C"> C) A SAML assertion</label>
+                                <label><input type="radio" name="d5q8" value="D"> D) An OAuth access token</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d5q8', 'B', 'fb-d5-8')">Submit Answer</button>
+                            <div id="fb-d5-8" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> After initial authentication, the KDC issues a TGT, then used to request service tickets without re-entering credentials.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d5-q9">
+                            <div class="quiz-progress"><span>Domain 5 · Question 9 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 90%;"></div></div></div>
+                            <div class="quiz-question">An employee moves from Finance to Marketing, but retains their old Finance system access in addition to their new Marketing access. This is an example of:</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d5q9" value="A"> A) Least privilege</label>
+                                <label><input type="radio" name="d5q9" value="B"> B) Separation of duties</label>
+                                <label><input type="radio" name="d5q9" value="C"> C) Privilege creep</label>
+                                <label><input type="radio" name="d5q9" value="D"> D) Federation</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d5q9', 'C', 'fb-d5-9')">Submit Answer</button>
+                            <div id="fb-d5-9" class="feedback-text"><strong>✅ Correct answer: C</strong><br><em>Why:</em> Retaining old access after a role change without removal is privilege creep.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d5-q10">
+                            <div class="quiz-progress"><span>Domain 5 · Question 10 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 100%;"></div></div></div>
+                            <div class="quiz-question">Which control is the primary defense against privilege creep over time?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d5q10" value="A"> A) One-time password issuance at hire</label>
+                                <label><input type="radio" name="d5q10" value="B"> B) Periodic access recertification/attestation by managers</label>
+                                <label><input type="radio" name="d5q10" value="C"> C) Disabling MFA for convenience</label>
+                                <label><input type="radio" name="d5q10" value="D"> D) Increasing password complexity requirements</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d5q10', 'B', 'fb-d5-10')">Submit Answer</button>
+                            <div id="fb-d5-10" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Periodic recertification/attestation is the primary control catching and reversing accumulated unneeded access.</div>
+                        </div>
+
+                        <h3>Domain 6 — Security Assessment and Testing</h3>
+                        <p class="sheet-footnote">Tests <a href="#sheet-08">08 Security Assessment &amp; Testing</a> · <a href="docs.html?file=domains/06-security-assessment-testing.md" target="_blank" rel="noopener">full deep-dive →</a></p>
+
+                        <div class="quiz-card" id="d6-q1">
+                            <div class="quiz-progress"><span>Domain 6 · Question 1 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 10%;"></div></div></div>
+                            <div class="quiz-question">What is the primary difference between a vulnerability assessment and a penetration test?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d6q1" value="A"> A) They are identical processes with different names</label>
+                                <label><input type="radio" name="d6q1" value="B"> B) A vulnerability assessment finds and lists weaknesses; a penetration test proves they are exploitable and shows real impact</label>
+                                <label><input type="radio" name="d6q1" value="C"> C) Vulnerability assessments require written authorization; penetration tests do not</label>
+                                <label><input type="radio" name="d6q1" value="D"> D) Penetration tests are always automated; vulnerability assessments are always manual</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d6q1', 'B', 'fb-d6-1')">Submit Answer</button>
+                            <div id="fb-d6-1" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Vulnerability assessments find/list weaknesses; penetration tests actively prove exploitability and impact.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d6-q2">
+                            <div class="quiz-progress"><span>Domain 6 · Question 2 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 20%;"></div></div></div>
+                            <div class="quiz-question">In a penetration test, a tester who is given full source code, architecture diagrams, and credentials in advance is performing which type of test?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d6q2" value="A"> A) Black box</label>
+                                <label><input type="radio" name="d6q2" value="B"> B) Gray box</label>
+                                <label><input type="radio" name="d6q2" value="C"> C) White box</label>
+                                <label><input type="radio" name="d6q2" value="D"> D) Blind box</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d6q2', 'C', 'fb-d6-2')">Submit Answer</button>
+                            <div id="fb-d6-2" class="feedback-text"><strong>✅ Correct answer: C</strong><br><em>Why:</em> Full knowledge provided in advance defines white box testing.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d6-q3">
+                            <div class="quiz-progress"><span>Domain 6 · Question 3 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 30%;"></div></div></div>
+                            <div class="quiz-question">What must exist, in writing, before any authorized penetration test begins?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d6q3" value="A"> A) A signed non-disclosure agreement only</label>
+                                <label><input type="radio" name="d6q3" value="B"> B) Rules of Engagement defining scope, timing, and allowed techniques</label>
+                                <label><input type="radio" name="d6q3" value="C"> C) A completed BIA</label>
+                                <label><input type="radio" name="d6q3" value="D"> D) A CVSS report from a prior scan</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d6q3', 'B', 'fb-d6-3')">Submit Answer</button>
+                            <div id="fb-d6-3" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Rules of Engagement (scope, timing, techniques, contacts) must be agreed and signed before testing begins.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d6-q4">
+                            <div class="quiz-progress"><span>Domain 6 · Question 4 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 40%;"></div></div></div>
+                            <div class="quiz-question">Which testing technique analyzes application source code for vulnerabilities without executing the program?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d6q4" value="A"> A) DAST</label>
+                                <label><input type="radio" name="d6q4" value="B"> B) SAST</label>
+                                <label><input type="radio" name="d6q4" value="C"> C) Fuzzing</label>
+                                <label><input type="radio" name="d6q4" value="D"> D) Penetration testing</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d6q4', 'B', 'fb-d6-4')">Submit Answer</button>
+                            <div id="fb-d6-4" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> SAST analyzes source code without executing it.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d6-q5">
+                            <div class="quiz-progress"><span>Domain 6 · Question 5 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 50%;"></div></div></div>
+                            <div class="quiz-question">Which testing technique tests a running application from the outside, black-box style, and can catch runtime/configuration issues that static analysis cannot?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d6q5" value="A"> A) SAST</label>
+                                <label><input type="radio" name="d6q5" value="B"> B) SCA</label>
+                                <label><input type="radio" name="d6q5" value="C"> C) DAST</label>
+                                <label><input type="radio" name="d6q5" value="D"> D) Code review</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d6q5', 'C', 'fb-d6-5')">Submit Answer</button>
+                            <div id="fb-d6-5" class="feedback-text"><strong>✅ Correct answer: C</strong><br><em>Why:</em> DAST tests the running application externally, catching issues invisible to static analysis.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d6-q6">
+                            <div class="quiz-progress"><span>Domain 6 · Question 6 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 60%;"></div></div></div>
+                            <div class="quiz-question">Feeding malformed or unexpected input into a program to discover crashes or memory-safety bugs is known as:</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d6q6" value="A"> A) Fuzzing</label>
+                                <label><input type="radio" name="d6q6" value="B"> B) Tailoring</label>
+                                <label><input type="radio" name="d6q6" value="C"> C) Baselining</label>
+                                <label><input type="radio" name="d6q6" value="D"> D) Scoping</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d6q6', 'A', 'fb-d6-6')">Submit Answer</button>
+                            <div id="fb-d6-6" class="feedback-text"><strong>✅ Correct answer: A</strong><br><em>Why:</em> Fuzzing feeds malformed/random input to surface crashes and memory-safety issues.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d6-q7">
+                            <div class="quiz-progress"><span>Domain 6 · Question 7 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 70%;"></div></div></div>
+                            <div class="quiz-question">What is the key difference between a SOC 2 Type I report and a SOC 2 Type II report?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d6q7" value="A"> A) Type I covers financial controls; Type II covers security controls</label>
+                                <label><input type="radio" name="d6q7" value="B"> B) Type I assesses control design at a point in time; Type II assesses design and operating effectiveness over a period</label>
+                                <label><input type="radio" name="d6q7" value="C"> C) Type II is always public; Type I is always confidential</label>
+                                <label><input type="radio" name="d6q7" value="D"> D) There is no meaningful difference</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d6q7', 'B', 'fb-d6-7')">Submit Answer</button>
+                            <div id="fb-d6-7" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Type II adds operating effectiveness testing over a period; Type I is a design-only snapshot.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d6-q8">
+                            <div class="quiz-progress"><span>Domain 6 · Question 8 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 80%;"></div></div></div>
+                            <div class="quiz-question">An authenticated (credentialed) vulnerability scan generally produces:</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d6q8" value="A"> A) More false positives than an unauthenticated scan</label>
+                                <label><input type="radio" name="d6q8" value="B"> B) Fewer false positives and greater visibility into missing patches and local misconfiguration</label>
+                                <label><input type="radio" name="d6q8" value="C"> C) No results, since credentials are not needed for scanning</label>
+                                <label><input type="radio" name="d6q8" value="D"> D) Results only about network-layer vulnerabilities</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d6q8', 'B', 'fb-d6-8')">Submit Answer</button>
+                            <div id="fb-d6-8" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Authenticated scans see more (missing patches, local config) and produce fewer false positives than unauthenticated scans.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d6-q9">
+                            <div class="quiz-progress"><span>Domain 6 · Question 9 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 90%;"></div></div></div>
+                            <div class="quiz-question">A threshold below which minor policy violations are logged but not escalated, used to reduce alert noise, is called a:</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d6q9" value="A"> A) Clipping level</label>
+                                <label><input type="radio" name="d6q9" value="B"> B) CVSS score</label>
+                                <label><input type="radio" name="d6q9" value="C"> C) Rules of Engagement</label>
+                                <label><input type="radio" name="d6q9" value="D"> D) SOC 3 report</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d6q9', 'A', 'fb-d6-9')">Submit Answer</button>
+                            <div id="fb-d6-9" class="feedback-text"><strong>✅ Correct answer: A</strong><br><em>Why:</em> A clipping level is the threshold below which minor violations are tolerated without triggering alerts.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d6-q10">
+                            <div class="quiz-progress"><span>Domain 6 · Question 10 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 100%;"></div></div></div>
+                            <div class="quiz-question">Which report is the public-facing, high-level summary version of a SOC 2 report, containing no sensitive control detail?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d6q10" value="A"> A) SOC 1</label>
+                                <label><input type="radio" name="d6q10" value="B"> B) SOC 2 Type I</label>
+                                <label><input type="radio" name="d6q10" value="C"> C) SOC 2 Type II</label>
+                                <label><input type="radio" name="d6q10" value="D"> D) SOC 3</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d6q10', 'D', 'fb-d6-10')">Submit Answer</button>
+                            <div id="fb-d6-10" class="feedback-text"><strong>✅ Correct answer: D</strong><br><em>Why:</em> SOC 3 is the public, high-level summary; SOC 2 reports contain sensitive detail and are restricted.</div>
+                        </div>
+
+                        <h3>Domain 7 — Security Operations</h3>
+                        <p class="sheet-footnote">Tests <a href="#sheet-09">09 Security Operations</a> · <a href="docs.html?file=domains/07-security-operations.md" target="_blank" rel="noopener">full deep-dive →</a></p>
+
+                        <div class="quiz-card" id="d7-q1">
+                            <div class="quiz-progress"><span>Domain 7 · Question 1 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 10%;"></div></div></div>
+                            <div class="quiz-question">An analyst disconnects an infected workstation from the network to stop malware from spreading further. Which incident response phase is this?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d7q1" value="A"> A) Eradication</label>
+                                <label><input type="radio" name="d7q1" value="B"> B) Containment</label>
+                                <label><input type="radio" name="d7q1" value="C"> C) Recovery</label>
+                                <label><input type="radio" name="d7q1" value="D"> D) Lessons Learned</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d7q1', 'B', 'fb-d7-1')">Submit Answer</button>
+                            <div id="fb-d7-1" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Isolating an infected host to stop spread is containment, which happens before eradication.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d7-q2">
+                            <div class="quiz-progress"><span>Domain 7 · Question 2 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 20%;"></div></div></div>
+                            <div class="quiz-question">Removing a backdoor and the root-cause malware from a compromised system occurs during which phase?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d7q2" value="A"> A) Containment</label>
+                                <label><input type="radio" name="d7q2" value="B"> B) Eradication</label>
+                                <label><input type="radio" name="d7q2" value="C"> C) Detection and Analysis</label>
+                                <label><input type="radio" name="d7q2" value="D"> D) Preparation</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d7q2', 'B', 'fb-d7-2')">Submit Answer</button>
+                            <div id="fb-d7-2" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Removing the root cause (malware, backdoor) is eradication.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d7-q3">
+                            <div class="quiz-progress"><span>Domain 7 · Question 3 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 30%;"></div></div></div>
+                            <div class="quiz-question">Which detection system is inline and actively blocks malicious traffic, as opposed to only alerting?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d7q3" value="A"> A) IDS</label>
+                                <label><input type="radio" name="d7q3" value="B"> B) IPS</label>
+                                <label><input type="radio" name="d7q3" value="C"> C) SIEM</label>
+                                <label><input type="radio" name="d7q3" value="D"> D) Honeypot</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d7q3', 'B', 'fb-d7-3')">Submit Answer</button>
+                            <div id="fb-d7-3" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> IPS is inline and actively blocks; IDS is passive and only alerts.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d7-q4">
+                            <div class="quiz-progress"><span>Domain 7 · Question 4 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 40%;"></div></div></div>
+                            <div class="quiz-question">Which backup type is fastest to create but generally slowest to restore, since every increment since the last full backup must be replayed in order?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d7q4" value="A"> A) Full</label>
+                                <label><input type="radio" name="d7q4" value="B"> B) Differential</label>
+                                <label><input type="radio" name="d7q4" value="C"> C) Incremental</label>
+                                <label><input type="radio" name="d7q4" value="D"> D) Snapshot-only</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d7q4', 'C', 'fb-d7-4')">Submit Answer</button>
+                            <div id="fb-d7-4" class="feedback-text"><strong>✅ Correct answer: C</strong><br><em>Why:</em> Incremental backups are fast to create but require replaying the full backup plus every incremental in order to restore.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d7-q5">
+                            <div class="quiz-progress"><span>Domain 7 · Question 5 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 50%;"></div></div></div>
+                            <div class="quiz-question">Which disaster recovery site type is fully operational with near-real-time data replication and can fail over within minutes to hours?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d7q5" value="A"> A) Cold site</label>
+                                <label><input type="radio" name="d7q5" value="B"> B) Warm site</label>
+                                <label><input type="radio" name="d7q5" value="C"> C) Hot site</label>
+                                <label><input type="radio" name="d7q5" value="D"> D) Reciprocal site</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d7q5', 'C', 'fb-d7-5')">Submit Answer</button>
+                            <div id="fb-d7-5" class="feedback-text"><strong>✅ Correct answer: C</strong><br><em>Why:</em> A hot site offers near-real-time replication and rapid failover, at the highest cost.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d7-q6">
+                            <div class="quiz-progress"><span>Domain 7 · Question 6 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 60%;"></div></div></div>
+                            <div class="quiz-question">During evidence collection, which of the following should be collected FIRST, according to the order of volatility?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d7q6" value="A"> A) Data on backup tapes</label>
+                                <label><input type="radio" name="d7q6" value="B"> B) CPU registers and cache</label>
+                                <label><input type="radio" name="d7q6" value="C"> C) Printed documents</label>
+                                <label><input type="radio" name="d7q6" value="D"> D) Archived logs on a remote server</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d7q6', 'B', 'fb-d7-6')">Submit Answer</button>
+                            <div id="fb-d7-6" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Order of volatility starts with the most volatile data — CPU registers and cache — before RAM, network state, disk, and archives.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d7-q7">
+                            <div class="quiz-progress"><span>Domain 7 · Question 7 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 70%;"></div></div></div>
+                            <div class="quiz-question">In a life-safety scenario such as a fire, a door on the emergency exit path should default to which state on power loss?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d7q7" value="A"> A) Fail-secure (locked)</label>
+                                <label><input type="radio" name="d7q7" value="B"> B) Fail-safe (unlocked)</label>
+                                <label><input type="radio" name="d7q7" value="C"> C) Remain in its last state indefinitely</label>
+                                <label><input type="radio" name="d7q7" value="D"> D) Require manual override only from building security</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d7q7', 'B', 'fb-d7-7')">Submit Answer</button>
+                            <div id="fb-d7-7" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Life-safety exits must fail-safe (unlock) on power loss so people are never trapped.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d7-q8">
+                            <div class="quiz-progress"><span>Domain 7 · Question 8 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 80%;"></div></div></div>
+                            <div class="quiz-question">An unbroken, documented record of who handled a piece of evidence, when, and how, is called:</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d7q8" value="A"> A) Order of volatility</label>
+                                <label><input type="radio" name="d7q8" value="B"> B) Chain of custody</label>
+                                <label><input type="radio" name="d7q8" value="C"> C) Due diligence</label>
+                                <label><input type="radio" name="d7q8" value="D"> D) A clipping level</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d7q8', 'B', 'fb-d7-8')">Submit Answer</button>
+                            <div id="fb-d7-8" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Chain of custody is the unbroken documented handling record required for evidence admissibility.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d7-q9">
+                            <div class="quiz-progress"><span>Domain 7 · Question 9 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 90%;"></div></div></div>
+                            <div class="quiz-question">A formal, documented process requiring request, assessment/approval by a Change Advisory Board, testing, and implementation before a production system is modified is called:</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d7q9" value="A"> A) Configuration management</label>
+                                <label><input type="radio" name="d7q9" value="B"> B) Change management</label>
+                                <label><input type="radio" name="d7q9" value="C"> C) Patch management</label>
+                                <label><input type="radio" name="d7q9" value="D"> D) Asset management</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d7q9', 'B', 'fb-d7-9')">Submit Answer</button>
+                            <div id="fb-d7-9" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Change management is the formal request-approve-test-implement process governing production changes.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d7-q10">
+                            <div class="quiz-progress"><span>Domain 7 · Question 10 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 100%;"></div></div></div>
+                            <div class="quiz-question">Which DR/BCP test type actually cuts over production operations to the alternate site, carrying the highest risk but also the highest confidence?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d7q10" value="A"> A) Tabletop/walkthrough</label>
+                                <label><input type="radio" name="d7q10" value="B"> B) Simulation</label>
+                                <label><input type="radio" name="d7q10" value="C"> C) Parallel test</label>
+                                <label><input type="radio" name="d7q10" value="D"> D) Full interruption test</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d7q10', 'D', 'fb-d7-10')">Submit Answer</button>
+                            <div id="fb-d7-10" class="feedback-text"><strong>✅ Correct answer: D</strong><br><em>Why:</em> A full interruption test actually cuts over production — highest risk, highest realism/confidence.</div>
+                        </div>
+
+                        <h3>Domain 8 — Software Development Security</h3>
+                        <p class="sheet-footnote">Tests <a href="#sheet-10">10 Software Development Security</a> · <a href="docs.html?file=domains/08-software-development-security.md" target="_blank" rel="noopener">full deep-dive →</a></p>
+
+                        <div class="quiz-card" id="d8-q1">
+                            <div class="quiz-progress"><span>Domain 8 · Question 1 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 10%;"></div></div></div>
+                            <div class="quiz-question">"Shift left" in secure software development means:</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d8q1" value="A"> A) Moving security testing to after deployment</label>
+                                <label><input type="radio" name="d8q1" value="B"> B) Moving security activities earlier in the SDLC, such as at requirements and design</label>
+                                <label><input type="radio" name="d8q1" value="C"> C) Reducing the number of developers on a project</label>
+                                <label><input type="radio" name="d8q1" value="D"> D) Only applying security review to legacy code</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d8q1', 'B', 'fb-d8-1')">Submit Answer</button>
+                            <div id="fb-d8-1" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Shift left moves security earlier in the SDLC since defects are cheaper to fix earlier.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d8-q2">
+                            <div class="quiz-progress"><span>Domain 8 · Question 2 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 20%;"></div></div></div>
+                            <div class="quiz-question">Which development model is iterative and explicitly risk-driven, repeating phases in expanding loops while reassessing risk each cycle?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d8q2" value="A"> A) Waterfall</label>
+                                <label><input type="radio" name="d8q2" value="B"> B) Spiral</label>
+                                <label><input type="radio" name="d8q2" value="C"> C) Big Bang</label>
+                                <label><input type="radio" name="d8q2" value="D"> D) V-Model</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d8q2', 'B', 'fb-d8-2')">Submit Answer</button>
+                            <div id="fb-d8-2" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Spiral is iterative and risk-driven, reassessing risk at each expanding loop.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d8-q3">
+                            <div class="quiz-progress"><span>Domain 8 · Question 3 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 30%;"></div></div></div>
+                            <div class="quiz-question">The structural fix for SQL injection is:</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d8q3" value="A"> A) Allow-listing input characters only</label>
+                                <label><input type="radio" name="d8q3" value="B"> B) Parameterized queries / prepared statements</label>
+                                <label><input type="radio" name="d8q3" value="C"> C) Increasing database timeout values</label>
+                                <label><input type="radio" name="d8q3" value="D"> D) Disabling error messages</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d8q3', 'B', 'fb-d8-3')">Submit Answer</button>
+                            <div id="fb-d8-3" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Parameterized queries separate code from data structurally, fixing SQL injection at the root.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d8-q4">
+                            <div class="quiz-progress"><span>Domain 8 · Question 4 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 40%;"></div></div></div>
+                            <div class="quiz-question">A vulnerability where untrusted input is rendered as executable script in another user's browser session is called:</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d8q4" value="A"> A) CSRF</label>
+                                <label><input type="radio" name="d8q4" value="B"> B) XSS</label>
+                                <label><input type="radio" name="d8q4" value="C"> C) SSRF</label>
+                                <label><input type="radio" name="d8q4" value="D"> D) TOCTOU</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d8q4', 'B', 'fb-d8-4')">Submit Answer</button>
+                            <div id="fb-d8-4" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> XSS executes attacker-supplied script in another user's browser context.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d8-q5">
+                            <div class="quiz-progress"><span>Domain 8 · Question 5 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 50%;"></div></div></div>
+                            <div class="quiz-question">A vulnerability where a victim's authenticated session is used to submit a request they did not intend to make is called:</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d8q5" value="A"> A) XSS</label>
+                                <label><input type="radio" name="d8q5" value="B"> B) CSRF</label>
+                                <label><input type="radio" name="d8q5" value="C"> C) SQL injection</label>
+                                <label><input type="radio" name="d8q5" value="D"> D) Buffer overflow</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d8q5', 'B', 'fb-d8-5')">Submit Answer</button>
+                            <div id="fb-d8-5" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> CSRF abuses a victim's already-authenticated session to perform an unintended action.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d8-q6">
+                            <div class="quiz-progress"><span>Domain 8 · Question 6 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 60%;"></div></div></div>
+                            <div class="quiz-question">Combining multiple pieces of individually low-sensitivity data to derive a higher-sensitivity conclusion is called:</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d8q6" value="A"> A) Inference</label>
+                                <label><input type="radio" name="d8q6" value="B"> B) Aggregation</label>
+                                <label><input type="radio" name="d8q6" value="C"> C) Polyinstantiation</label>
+                                <label><input type="radio" name="d8q6" value="D"> D) Tailoring</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d8q6', 'B', 'fb-d8-6')">Submit Answer</button>
+                            <div id="fb-d8-6" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Aggregation combines multiple low-sensitivity pieces into a higher-sensitivity picture.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d8-q7">
+                            <div class="quiz-progress"><span>Domain 8 · Question 7 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 70%;"></div></div></div>
+                            <div class="quiz-question">Deducing restricted information purely from patterns in what a user can already legitimately access, without ever touching the restricted data directly, is called:</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d8q7" value="A"> A) Aggregation</label>
+                                <label><input type="radio" name="d8q7" value="B"> B) Inference</label>
+                                <label><input type="radio" name="d8q7" value="C"> C) Federation</label>
+                                <label><input type="radio" name="d8q7" value="D"> D) Fuzzing</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d8q7', 'B', 'fb-d8-7')">Submit Answer</button>
+                            <div id="fb-d8-7" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> Inference deduces restricted information from patterns, without direct access to the restricted data.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d8-q8">
+                            <div class="quiz-progress"><span>Domain 8 · Question 8 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 80%;"></div></div></div>
+                            <div class="quiz-question">Storing multiple versions of the same database record at different classification levels, to prevent a low-clearance user from even inferring a high-clearance record exists, is called:</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d8q8" value="A"> A) Polyinstantiation</label>
+                                <label><input type="radio" name="d8q8" value="B"> B) Aggregation</label>
+                                <label><input type="radio" name="d8q8" value="C"> C) Normalization</label>
+                                <label><input type="radio" name="d8q8" value="D"> D) Sharding</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d8q8', 'A', 'fb-d8-8')">Submit Answer</button>
+                            <div id="fb-d8-8" class="feedback-text"><strong>✅ Correct answer: A</strong><br><em>Why:</em> Polyinstantiation stores classification-specific record versions to prevent inference of a higher-classified record's existence.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d8-q9">
+                            <div class="quiz-progress"><span>Domain 8 · Question 9 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 90%;"></div></div></div>
+                            <div class="quiz-question">A Software Bill of Materials (SBOM) is primarily used to:</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d8q9" value="A"> A) Track project budget and licensing costs</label>
+                                <label><input type="radio" name="d8q9" value="B"> B) Inventory exactly what components (including third-party and open-source) are present in a software build</label>
+                                <label><input type="radio" name="d8q9" value="C"> C) Replace the need for code review</label>
+                                <label><input type="radio" name="d8q9" value="D"> D) Encrypt source code repositories</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d8q9', 'B', 'fb-d8-9')">Submit Answer</button>
+                            <div id="fb-d8-9" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> An SBOM inventories all components in a build, supporting supply-chain vulnerability management.</div>
+                        </div>
+
+                        <div class="quiz-card" id="d8-q10">
+                            <div class="quiz-progress"><span>Domain 8 · Question 10 of 10</span><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width: 100%;"></div></div></div>
+                            <div class="quiz-question">Which maturity model levels, in CMMI, run from least to most mature?</div>
+                            <div class="quiz-options">
+                                <label><input type="radio" name="d8q10" value="A"> A) Bronze, Silver, Gold</label>
+                                <label><input type="radio" name="d8q10" value="B"> B) 1 Initial, 2 Managed, 3 Defined, 4 Quantitatively Managed, 5 Optimizing</label>
+                                <label><input type="radio" name="d8q10" value="C"> C) Low, Medium, High, Critical</label>
+                                <label><input type="radio" name="d8q10" value="D"> D) A, B, C, D, E</label>
+                            </div>
+                            <button class="quiz-submit" onclick="checkAnswer('d8q10', 'B', 'fb-d8-10')">Submit Answer</button>
+                            <div id="fb-d8-10" class="feedback-text"><strong>✅ Correct answer: B</strong><br><em>Why:</em> CMMI levels run 1 Initial through 5 Optimizing, in increasing process maturity.</div>
+                        </div>
+
+                        <div id="quizLiveTally" class="quiz-score-banner">Answer questions above to track your score (0/80 answered)</div>
+                        <div class="text-center mt-20">
+                            <button class="btn btn-secondary" onclick="resetAllQuizzes()">🔄 Reset All Quizzes</button>
+                        </div>
+                    </section>
+                </div>
+            </article>
+
+        </main>
+
+        <!-- ================= STUDY DESK ================= -->
+        <section id="studyDesk" aria-label="Study desk">
+            <div class="study-desk__resize-handle" id="studyDeskResizeHandle" role="separator" aria-orientation="horizontal" aria-label="Resize study desk"></div>
+            <div class="study-desk__header">
+                <span class="study-desk__title"><span aria-hidden="true">✎</span> Study Desk</span>
+                <span class="study-desk__scope" id="studyDeskScope">Notes for 00 · Start</span>
+                <span class="study-desk__spacer"></span>
+                <a href="#sheet-review" id="studyDeskReviewLink" class="study-desk__review-link">View my review queue →</a>
+                <span class="study-desk__saved" id="studyDeskSaved" aria-live="polite"></span>
+                <button id="studyDeskToggle" class="icon-btn" aria-expanded="true" aria-controls="studyDeskBody">Collapse ↓</button>
+            </div>
+            <div class="study-desk__body" id="studyDeskBody">
+                <label class="sr-only" for="studyDeskEditor">Notes for the current sheet</label>
+                <textarea class="study-desk__editor" id="studyDeskEditor" placeholder="Notes for this sheet — thoughts, questions, things to revisit..."></textarea>
+            </div>
+        </section>
+    </div>
+</div>
+
+<dialog id="searchDialog" aria-label="Search the certification workspace">
+    <div class="search-dialog__input-row">
+        <span class="search-dialog__icon" aria-hidden="true">⌕</span>
+        <input type="text" class="search-dialog__input" id="searchInput" placeholder="Search CISSP certification...">
+    </div>
+    <ul class="search-dialog__results" id="searchResults"></ul>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>
