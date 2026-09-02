@@ -135,7 +135,10 @@
             if (/^\s*[-*]\s+/.test(line)) {
                 const items = [];
                 while (i < lines.length && /^\s*[-*]\s+/.test(lines[i])) {
-                    items.push(renderInline(lines[i].replace(/^\s*[-*]\s+/, '')));
+                    const raw = lines[i].replace(/^\s*[-*]\s+/, '')
+                        .replace(/^\[ \]\s+/, '☐ ')
+                        .replace(/^\[[xX]\]\s+/, '☑ ');
+                    items.push(renderInline(raw));
                     i++;
                 }
                 html += '<ul>' + items.map(function(it) { return '<li>' + it + '</li>'; }).join('') + '</ul>\n';
