@@ -18,6 +18,17 @@ The exam consistently asks "which model would you use to enforce X?" Anchor each
 
 > **Trap:** "No read up, no write down" is Bell-LaPadula (confidentiality). Reverse it and it's Biba (integrity). Students consistently swap these under time pressure — anchor it as **B**ell-LaPadula = **B**arred from Above (can't read up), Biba = Barred from Below (can't read down).
 
+**Clark-Wilson's access-triple vocabulary**, worth knowing by name:
+
+| Term | Meaning |
+|---|---|
+| **CDI** (Constrained Data Item) | Data that must maintain integrity — the thing being protected |
+| **UDI** (Unconstrained Data Item) | Input from an untrusted source, not yet verified |
+| **IVP** (Integrity Verification Procedure) | Confirms a CDI is in a valid state |
+| **TP** (Transformation Procedure) | The only authorized way to modify a CDI — users never touch CDIs directly, only through a TP |
+
+The access triple is **Subject → Transformation Procedure → CDI**: a user can only change protected data by going through an approved program, never by editing it directly.
+
 ---
 
 ## Evaluation Criteria and Assurance

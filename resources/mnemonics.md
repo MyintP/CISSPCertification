@@ -13,6 +13,12 @@ Simple recall devices for the pairs and sequences candidates most often mix up u
 
 They are exact mirror images of each other — if you know one cold, flip it for the other.
 
+Extra anchors for the rest of the model lineup:
+
+- **Biba hates DIRT** — no **D**irty (low-integrity) data gets read in, no modifications go **up** to corrupt trusted data.
+- **Clark-Wilson works in a BANK** — every transaction is controlled through an approved procedure and audited, the way a bank never lets you touch the vault directly.
+- **Brewer-Nash is the WALL** between competing clients — like a Chinese Wall, once you've been on one side you can't cross to the other.
+
 ---
 
 ## OSI 7 Layers, Top to Bottom (Domain 4)

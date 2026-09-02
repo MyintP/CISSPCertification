@@ -2,6 +2,18 @@
 
 All notable changes to the CISSP Certification Workspace will be documented here.
 
+## [1.0.1] - September 2026
+
+### Added
+- `resources/quick-reference.md` — a single cram-page formula/fact sheet (risk formulas with a worked example, symmetric key count formula, common port numbers, crypto algorithm status, fire classes, recovery site comparison, backup types).
+- `resources/mindset-guide.md` — "think like a manager, not a technician": the Manager Filter, priority hierarchy, question-reading strategy, and common answer patterns.
+- `docs/full-mock-exam.md` — guide for running a full timed 150-question mock exam once every domain check scores 9/10+, including third-party question-bank recommendations and a readiness-benchmark table.
+- Clark-Wilson's CDI/UDI/IVP/TP vocabulary and access-triple explanation, folded into `domains/03-security-architecture-engineering.md`.
+- Three additional model mnemonics (Biba/DIRT, Clark-Wilson/BANK, Brewer-Nash/WALL) in `resources/mnemonics.md`.
+
+### Notes
+- This repo replaced an earlier markdown-only version of `MyintP/CISSPCertification` (Jekyll-based, no app shell). Before overwriting, its unique content was reviewed for continued relevance: the items above were confirmed still accurate and useful and carried forward/adapted; page-navigation scaffolding (`_config.yml`, `index.md` files, `link-integrity.yml`) was superseded by this repo's own app shell and CI, and Jekyll domain/model reference files were superseded by this repo's own more detailed domain deep-dives and Quick Recall tables — both were left out rather than duplicated.
+
 ## [1.0.0] - September 2026
 
 ### Added

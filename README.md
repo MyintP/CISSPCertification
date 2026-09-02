@@ -27,8 +27,8 @@ This repository hosts a certification workspace for the **CISSP (Certified Infor
 | `app.js` | Shell behaviour: sheet routing, sidebar/context bar sync, Study Desk notes, progress tracker, quiz scoring, search |
 | `/domains` | Deep-dive notes for each of the 8 CBK domains |
 | `/quiz` | Source material for the 80 domain knowledge-check questions on the Practice sheet |
-| `/resources` | Glossary, exam traps, acronym reference, mnemonics |
-| `/docs` | Exam overview, 8-week study plan, key links |
+| `/resources` | Glossary, exam traps, acronym reference, mnemonics, quick-reference/formula cheat sheet, exam mindset guide |
+| `/docs` | Exam overview, 8-week study plan, full mock exam guide, key links |
 | `DEPLOYMENT.md` | Deployment instructions for GitHub Pages |
 | `.github/workflows/link-check.yml` | Automated dead-link check on every push |
 

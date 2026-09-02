@@ -34,8 +34,11 @@
 | Exam traps | `resources/exam-traps.md` |
 | Acronym reference | `resources/acronyms.md` |
 | Memory aids / mnemonics | `resources/mnemonics.md` |
+| Quick reference / formula cheat sheet | `resources/quick-reference.md` |
+| Exam mindset guide | `resources/mindset-guide.md` |
 | Exam overview | `docs/exam-overview.md` |
 | 8-week study plan | `docs/study-plan.md` |
+| Full mock exam guide | `docs/full-mock-exam.md` |
 
 ---
 
