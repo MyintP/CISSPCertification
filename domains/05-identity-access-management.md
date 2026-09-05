@@ -103,6 +103,3 @@ Privileged accounts (root, domain admin, service accounts) carry outsized risk. 
 | "Ticket-based on-prem SSO" | Kerberos |
 | "Old access not removed after a role change" | Privilege creep |
 
----
-
-**Test yourself:** `quiz/domain-5-quiz.md` · Practice sheet → Domain 5 Knowledge Check

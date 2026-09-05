@@ -113,6 +113,3 @@ A high-yield table: match legacy protocol → secure replacement and *why* the l
 | "Current wireless best practice" | WPA3 |
 | "Never trust by network location" | Zero trust |
 
----
-
-**Test yourself:** `quiz/domain-4-quiz.md` · Practice sheet → Domain 4 Knowledge Check

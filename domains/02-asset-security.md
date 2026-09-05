@@ -109,6 +109,3 @@ Retention policy must reconcile at least three pulls: legal/regulatory minimums,
 | "Remove controls that don't apply" | Scoping |
 | "Add controls to fit context" | Tailoring |
 
----
-
-**Test yourself:** `quiz/domain-2-quiz.md` · Practice sheet → Domain 2 Knowledge Check

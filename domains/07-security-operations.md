@@ -97,6 +97,3 @@ The canonical sequence — a huge source of scenario questions asking "which pha
 | "Collect this first at a crime scene" | Most volatile data (registers/RAM) |
 | "Door must unlock on power loss (fire exit)" | Fail-safe |
 
----
-
-**Test yourself:** `quiz/domain-7-quiz.md` · Practice sheet → Domain 7 Knowledge Check

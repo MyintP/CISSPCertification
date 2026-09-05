@@ -2,6 +2,38 @@
 
 All notable changes to the CISSP Certification Workspace will be documented here.
 
+## [1.1.0] - September 2026
+
+The SAP EA Certification Workspace this project is templated on evolved substantially since this
+repo's initial build (Today's Focus, an inline-deep-dive UX fix, a "hub + second window" link-target
+audit). Re-synced with that template's current design/UX patterns rather than letting the two drift.
+
+### Added
+- **Today's Focus + Study Timer** on the Start sheet: a self-paced, always-shows-the-next-thing
+  card driven by a new 8-week `SCHEDULE` (56 entries in `app.js`), plus a Pomodoro-style focus/break
+  timer with presets and a circular progress gauge (`svgGauge()`, shared with the Tracker sheet).
+- **Study Schedule sheet** (`#sheet-schedule`): the 8-week plan as a checkable, week-grouped list.
+  Checking a day here or via Today's Focus keeps both in sync immediately, no reload.
+- **Inlined domain deep-dives**: all 8 domain sheets (03–10) now render their full `.md` file
+  directly in the sheet via a new `parseMarkdownToHtml()`/`loadInlineDeepDive()` in `app.js`, instead
+  of a single footnote link to `docs.html` buried below the Study Desk. Each sheet now ends with two
+  button-styled CTAs ("Test yourself" + "Open as its own page") instead of one small italic link.
+  Removed the now-redundant "Test yourself: quiz/domain-N-quiz.md" trailer line from each
+  `domains/*.md` file, since the CTA row covers it.
+- `#fileProtocolBanner`: an in-page warning if the site is opened via `file://` instead of a local
+  server, since `fetch()` of local `.md` files is silently blocked in that mode.
+- `.callout` CSS (blockquote styling) — every `>` note/trap in every `.md` file was rendering
+  completely unstyled in both `docs.html` and the new inline view; fixed for both at once.
+- `.btn-primary` CSS — used by the new Today's Focus and domain-sheet CTAs but never defined,
+  which would have rendered as an unstyled button; added as an accent-colored primary action style
+  consistent with the rest of the design system (`.quiz-submit`, `.review-filter.is-active`, etc).
+- A progress gauge ring on the Tracker sheet (sheet 12), replacing the plain percentage-only display.
+
+### Notes
+- Deliberately not ported: SAP EA's Clean Core Decision Engine and Wanderlust Case Hub (SAP-specific
+  interactive tools with no CISSP equivalent), its "Discover the Role" sheet, and its Certification
+  Track sheet. These are content additions specific to that curriculum, not design-system elements.
+
 ## [1.0.1] - September 2026
 
 ### Added

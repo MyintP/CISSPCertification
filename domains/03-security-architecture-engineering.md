@@ -115,6 +115,3 @@ Layered defense, outside-in: **deterrent → delayed access (barriers) → detec
 | "Real-time cert revocation check" | OCSP |
 | "Fire suppression, electrical equipment" | Non-conductive agent (never water) |
 
----
-
-**Test yourself:** `quiz/domain-3-quiz.md` · Practice sheet → Domain 3 Knowledge Check

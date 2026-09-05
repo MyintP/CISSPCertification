@@ -37,6 +37,10 @@
         <div id="readingProgress" aria-hidden="true"></div>
     </header>
 
+    <div id="fileProtocolBanner" hidden>
+        ⚠️ You've opened this file directly (<code>file://</code>) — domain deep-dives and linked docs won't load. Serve this folder with a local server instead (e.g. <code>python -m http.server</code>) and open it via <code>http://localhost</code>, or use the live site.
+    </div>
+
     <!-- ================= SIDEBAR NAVIGATION ================= -->
     <nav id="sidebarNav" aria-label="Certification map">
         <div class="sidebar-brand">🔐 CISSP Certification</div>
@@ -46,6 +50,7 @@
                 <summary>Get Started</summary>
                 <ul>
                     <li><a class="nav-item" href="#sheet-00"><span class="nav-item__code">00</span><span class="nav-item__label">Start</span><span class="nav-item__note-dot" aria-hidden="true"></span></a></li>
+                    <li><a class="nav-item" href="#sheet-schedule"><span class="nav-item__code">S</span><span class="nav-item__label">Study Schedule</span><span class="nav-item__note-dot" aria-hidden="true"></span></a></li>
                 </ul>
             </details>
 
@@ -130,6 +135,29 @@
                         <p class="sheet-lede">CISSP is broad, not deep: it certifies that you can reason about security governance, architecture, and operations at a management level across the entire CBK (Common Body of Knowledge), not that you're a hands-on specialist in any one domain. Core rule: study the <strong>reasoning</strong>, not just the vocabulary — the exam rewards the "best" answer, not merely a technically correct one.</p>
                     </div>
 
+                    <div class="today-dashboard">
+                        <div class="today-card" id="todayFocusCard">
+                            <p class="today-focus__label">Loading your plan…</p>
+                        </div>
+                        <div class="today-card timer-card" id="studyTimerCard">
+                            <div class="timer-card__gauge" id="timerGauge"></div>
+                            <div class="timer-card__body">
+                                <span class="timer-card__mode" id="timerModeLabel">Focus</span>
+                                <span class="timer-card__display" id="timerDisplay">25:00</span>
+                                <div class="timer-card__controls">
+                                    <button type="button" class="btn btn-primary" id="timerStartBtn">▶ Start</button>
+                                    <button type="button" class="btn btn-secondary" id="timerPauseBtn" hidden>⏸ Pause</button>
+                                    <button type="button" class="btn btn-secondary" id="timerResetBtn">↺ Reset</button>
+                                </div>
+                                <div class="timer-card__presets">
+                                    <button type="button" class="timer-preset-btn" data-focus="25" data-break="5">25 / 5</button>
+                                    <button type="button" class="timer-preset-btn" data-focus="50" data-break="10">50 / 10</button>
+                                    <button type="button" class="timer-preset-btn" data-focus="15" data-break="3">15 / 3</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="card-grid">
                         <div class="info-card">
                             <h3>📖 Know</h3>
@@ -145,14 +173,49 @@
                         </div>
                     </div>
 
+                    <h4>How this workspace and ISC2 fit together</h4>
+                    <p>This workspace does not replace ISC2 — it can't. ISC2 is the system of record: it publishes the exam outline, issues the certification, and is where the exam is actually booked and sat. Nothing here duplicates that.</p>
+                    <div class="table-scroll">
+                        <table class="table-standard">
+                            <thead>
+                                <tr><th>ISC2 does</th><th>This site does</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>The official exam outline, registration and delivery via Pearson VUE, and the Code of Ethics.</td><td>The synthesis layer ISC2 doesn't: one page per domain explaining the "so what," a scored knowledge-check bank, a self-paced study schedule, and a single tracker across all of it.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="sheet-footnote">Practically: read a sheet here first for the shape of the domain, do the linked <a href="#sheet-ref">official resource</a> for the primary-source depth, then come back and prove it stuck in <a href="#sheet-practice">Practice</a>. Book and sit the exam via ISC2 — always check the live <a href="https://www.isc2.org/certifications/cissp/cissp-certification-exam-outline" target="_blank" rel="noopener">CISSP Certification Exam Outline</a> before relying on anything here for exam mechanics.</p>
+
                     <h4>How to use this workspace</h4>
                     <ul>
+                        <li>Don't decide what to study — the <strong>Today's Focus</strong> card above always shows your next day. Click it, do it, mark it done.</li>
                         <li>Read the domain sheets in order using the left-hand map — study time should roughly track the exam weight of each domain.</li>
-                        <li>Open the full deep-dive for a domain (linked at the bottom of each sheet) before testing yourself.</li>
+                        <li>Each domain sheet inlines its full deep-dive directly below the summary — no extra click required.</li>
                         <li>Use <a href="#sheet-practice">Practice</a> to run each domain's knowledge check, and re-read anything you score below 8/10 on.</li>
                         <li>Keep notes in the Study Desk below — it remembers a separate note per sheet.</li>
                         <li>Check off each domain in the <a href="#sheet-12">Progress Tracker</a> once you're consistently scoring well.</li>
                     </ul>
+                </div>
+            </article>
+
+            <!-- SHEET: STUDY SCHEDULE -->
+            <article class="sheet" id="sheet-schedule" data-title="Study Schedule" data-group="Get Started" data-code="S">
+                <div class="sheet-inner">
+                    <div class="sheet-header">
+                        <div class="sheet-kicker"><span class="sheet-kicker__code">S</span><span>Get Started</span></div>
+                        <h1 class="sheet-title">Your 8-week study schedule</h1>
+                        <p class="sheet-lede">Self-paced, not calendar-paced — checking a day off just advances what the Start sheet shows you next. Skip a real day and nothing "falls behind"; you pick up exactly where you left off.</p>
+                    </div>
+
+                    <div id="scheduleList"><p class="sheet-footnote">Loading schedule…</p></div>
+
+                    <div class="pattern pattern--tip">
+                        <span class="pattern__label">Pacing</span>
+                        <p>Behind on a domain? Spend an extra day before moving on — all 8 domains are weighted differently (see <a href="#sheet-01">Exam Model &amp; Format</a>), but a weak one is never fully compensated by a strong one. Ahead? Use the extra time on the knowledge checks you scored weakest on. Exam delayed? Come back to the domain quizzes weekly to hold retention.</p>
+                    </div>
+
+                    <p class="sheet-footnote">Full plan with source notes: <a href="docs.html?file=docs/study-plan.md" target="_blank" rel="noopener">docs/study-plan.md →</a></p>
                 </div>
             </article>
 
@@ -298,7 +361,14 @@
                     <h2>Governance Hierarchy</h2>
                     <p>Policy (mandatory, high-level) → Standard (mandatory, specific) → Procedure (mandatory, step-by-step) → Guideline (discretionary). A Baseline is a minimum reference configuration state, distinct from a Standard's rule.</p>
 
-                    <p class="sheet-footnote"><a href="docs.html?file=domains/01-security-risk-management.md" target="_blank" rel="noopener">Full domain deep-dive →</a> · <a href="#sheet-practice">Test yourself: Domain 1 knowledge check →</a></p>
+                    <hr class="sheet-divider">
+                    <h2 class="deep-dive-heading">📖 Full Deep-Dive</h2>
+                    <div class="deep-dive-inline" id="domain03DeepDive"><p class="sheet-footnote">Loading the full deep-dive…</p></div>
+
+                    <div class="sheet-cta">
+                        <a class="btn btn-primary" href="#sheet-practice">🎯 Test yourself: Domain 1 knowledge check →</a>
+                        <a class="btn btn-secondary" href="docs.html?file=domains/01-security-risk-management.md" target="_blank" rel="noopener">Open as its own page →</a>
+                    </div>
                 </div>
             </article>
 
@@ -332,7 +402,14 @@
                         <p>Degaussing does not work on SSDs — they have no magnetic domains. Use cryptographic erase or physical destruction instead.</p>
                     </div>
 
-                    <p class="sheet-footnote"><a href="docs.html?file=domains/02-asset-security.md" target="_blank" rel="noopener">Full domain deep-dive →</a> · <a href="#sheet-practice">Test yourself: Domain 2 knowledge check →</a></p>
+                    <hr class="sheet-divider">
+                    <h2 class="deep-dive-heading">📖 Full Deep-Dive</h2>
+                    <div class="deep-dive-inline" id="domain04DeepDive"><p class="sheet-footnote">Loading the full deep-dive…</p></div>
+
+                    <div class="sheet-cta">
+                        <a class="btn btn-primary" href="#sheet-practice">🎯 Test yourself: Domain 2 knowledge check →</a>
+                        <a class="btn btn-secondary" href="docs.html?file=domains/02-asset-security.md" target="_blank" rel="noopener">Open as its own page →</a>
+                    </div>
                 </div>
             </article>
 
@@ -363,7 +440,14 @@
                         <p>Sign with the <strong>sender's private</strong> key; encrypt for confidentiality with the <strong>recipient's public</strong> key. Reversing these is the single most common crypto mistake under time pressure.</p>
                     </div>
 
-                    <p class="sheet-footnote"><a href="docs.html?file=domains/03-security-architecture-engineering.md" target="_blank" rel="noopener">Full domain deep-dive →</a> · <a href="#sheet-practice">Test yourself: Domain 3 knowledge check →</a></p>
+                    <hr class="sheet-divider">
+                    <h2 class="deep-dive-heading">📖 Full Deep-Dive</h2>
+                    <div class="deep-dive-inline" id="domain05DeepDive"><p class="sheet-footnote">Loading the full deep-dive…</p></div>
+
+                    <div class="sheet-cta">
+                        <a class="btn btn-primary" href="#sheet-practice">🎯 Test yourself: Domain 3 knowledge check →</a>
+                        <a class="btn btn-secondary" href="docs.html?file=domains/03-security-architecture-engineering.md" target="_blank" rel="noopener">Open as its own page →</a>
+                    </div>
                 </div>
             </article>
 
@@ -398,7 +482,14 @@
                         <p>A SYN flood exploits TCP's 3-way handshake specifically — this attack has no equivalent against connectionless UDP.</p>
                     </div>
 
-                    <p class="sheet-footnote"><a href="docs.html?file=domains/04-communication-network-security.md" target="_blank" rel="noopener">Full domain deep-dive →</a> · <a href="#sheet-practice">Test yourself: Domain 4 knowledge check →</a></p>
+                    <hr class="sheet-divider">
+                    <h2 class="deep-dive-heading">📖 Full Deep-Dive</h2>
+                    <div class="deep-dive-inline" id="domain06DeepDive"><p class="sheet-footnote">Loading the full deep-dive…</p></div>
+
+                    <div class="sheet-cta">
+                        <a class="btn btn-primary" href="#sheet-practice">🎯 Test yourself: Domain 4 knowledge check →</a>
+                        <a class="btn btn-secondary" href="docs.html?file=domains/04-communication-network-security.md" target="_blank" rel="noopener">Open as its own page →</a>
+                    </div>
                 </div>
             </article>
 
@@ -432,7 +523,14 @@
                         <p>OAuth 2.0 grants delegated <strong>authorization</strong>; OpenID Connect (OIDC) adds the <strong>authentication</strong>/identity layer on top of it.</p>
                     </div>
 
-                    <p class="sheet-footnote"><a href="docs.html?file=domains/05-identity-access-management.md" target="_blank" rel="noopener">Full domain deep-dive →</a> · <a href="#sheet-practice">Test yourself: Domain 5 knowledge check →</a></p>
+                    <hr class="sheet-divider">
+                    <h2 class="deep-dive-heading">📖 Full Deep-Dive</h2>
+                    <div class="deep-dive-inline" id="domain07DeepDive"><p class="sheet-footnote">Loading the full deep-dive…</p></div>
+
+                    <div class="sheet-cta">
+                        <a class="btn btn-primary" href="#sheet-practice">🎯 Test yourself: Domain 5 knowledge check →</a>
+                        <a class="btn btn-secondary" href="docs.html?file=domains/05-identity-access-management.md" target="_blank" rel="noopener">Open as its own page →</a>
+                    </div>
                 </div>
             </article>
 
@@ -456,7 +554,14 @@
                         <p>SOC 2 Type I = design at a point in time. SOC 2 Type II = design <strong>and</strong> operating effectiveness over a period — stronger assurance.</p>
                     </div>
 
-                    <p class="sheet-footnote"><a href="docs.html?file=domains/06-security-assessment-testing.md" target="_blank" rel="noopener">Full domain deep-dive →</a> · <a href="#sheet-practice">Test yourself: Domain 6 knowledge check →</a></p>
+                    <hr class="sheet-divider">
+                    <h2 class="deep-dive-heading">📖 Full Deep-Dive</h2>
+                    <div class="deep-dive-inline" id="domain08DeepDive"><p class="sheet-footnote">Loading the full deep-dive…</p></div>
+
+                    <div class="sheet-cta">
+                        <a class="btn btn-primary" href="#sheet-practice">🎯 Test yourself: Domain 6 knowledge check →</a>
+                        <a class="btn btn-secondary" href="docs.html?file=domains/06-security-assessment-testing.md" target="_blank" rel="noopener">Open as its own page →</a>
+                    </div>
                 </div>
             </article>
 
@@ -480,7 +585,14 @@
                         <p>Life safety always outranks asset protection. Fire/emergency exits must fail-<strong>safe</strong> (unlock) on power loss.</p>
                     </div>
 
-                    <p class="sheet-footnote"><a href="docs.html?file=domains/07-security-operations.md" target="_blank" rel="noopener">Full domain deep-dive →</a> · <a href="#sheet-practice">Test yourself: Domain 7 knowledge check →</a></p>
+                    <hr class="sheet-divider">
+                    <h2 class="deep-dive-heading">📖 Full Deep-Dive</h2>
+                    <div class="deep-dive-inline" id="domain09DeepDive"><p class="sheet-footnote">Loading the full deep-dive…</p></div>
+
+                    <div class="sheet-cta">
+                        <a class="btn btn-primary" href="#sheet-practice">🎯 Test yourself: Domain 7 knowledge check →</a>
+                        <a class="btn btn-secondary" href="docs.html?file=domains/07-security-operations.md" target="_blank" rel="noopener">Open as its own page →</a>
+                    </div>
                 </div>
             </article>
 
@@ -504,7 +616,14 @@
                         <p>The structural fix for SQL injection is <strong>parameterized queries</strong> — they separate code from data entirely, not just filter bad characters.</p>
                     </div>
 
-                    <p class="sheet-footnote"><a href="docs.html?file=domains/08-software-development-security.md" target="_blank" rel="noopener">Full domain deep-dive →</a> · <a href="#sheet-practice">Test yourself: Domain 8 knowledge check →</a></p>
+                    <hr class="sheet-divider">
+                    <h2 class="deep-dive-heading">📖 Full Deep-Dive</h2>
+                    <div class="deep-dive-inline" id="domain10DeepDive"><p class="sheet-footnote">Loading the full deep-dive…</p></div>
+
+                    <div class="sheet-cta">
+                        <a class="btn btn-primary" href="#sheet-practice">🎯 Test yourself: Domain 8 knowledge check →</a>
+                        <a class="btn btn-secondary" href="docs.html?file=domains/08-software-development-security.md" target="_blank" rel="noopener">Open as its own page →</a>
+                    </div>
                 </div>
             </article>
 
@@ -625,6 +744,7 @@
                         </div>
 
                         <div class="tracker-footer">
+                            <span id="trackerGauge" class="gauge-tile__gauge"></span>
                             <div class="tracker-summary">
                                 <div><strong>Checklist:</strong> <span id="progressDisplay">0/10 (0%)</span></div>
                                 <div class="js-quiz-progress-display" style="margin-top: 4px; color: var(--accent);">📊 Quiz: Not started yet</div>

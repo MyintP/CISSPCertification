@@ -10,11 +10,12 @@ This repository hosts a certification workspace for the **CISSP (Certified Infor
 ## 🚀 Getting Started
 
 1. **Visit the live site**: [https://myintp.github.io/CISSPCertification/](https://myintp.github.io/CISSPCertification/)
-2. **Use the left-hand map** to move through Get Started → Exam → Method → CBK Domains → Practice → Reference → Progress
-3. **Read each domain sheet**, then open its full deep-dive (linked at the bottom of the sheet)
-4. **Test yourself** on the `Practice` sheet — 80 domain knowledge-check questions, 10 per domain
-5. **Jot notes as you go** in the Study Desk at the bottom — it remembers a separate note per sheet
-6. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>K</kbd> anywhere to jump straight to a sheet by name
+2. **Don't decide what to study** — the Today's Focus card on the Start sheet always shows your next day from the 8-week schedule; click it, do it, mark it done
+3. **Use the left-hand map** to move through Get Started → Exam → Method → CBK Domains → Practice → Reference → Progress
+4. **Read each domain sheet** — the full deep-dive is inlined directly below the summary, no extra click required
+5. **Test yourself** on the `Practice` sheet — 80 domain knowledge-check questions, 10 per domain
+6. **Jot notes as you go** in the Study Desk at the bottom — it remembers a separate note per sheet
+7. Press <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>K</kbd> anywhere to jump straight to a sheet by name
 
 ## 📁 Repository Structure
 
@@ -34,11 +35,15 @@ This repository hosts a certification workspace for the **CISSP (Certified Infor
 
 ## 🛠️ Local Development
 
-No build step, framework, or package installation is required. Simply:
+No build step, framework, or package installation is required — but the domain sheets and the
+`docs.html` markdown viewer fetch `.md` files at runtime, and browsers block `fetch()` of local
+files opened directly (`file://`). **Don't just double-click `index.html`** — serve the folder:
 
-1. Clone this repository
-2. Open `index.html` in your browser
-3. Edit files directly
+1. Clone this repository (or your fork)
+2. From the repo root, run a static server, e.g. `python -m http.server 8000` (any static server
+   works — VS Code's Live Server extension, `npx serve`, etc.)
+3. Open `http://localhost:8000` in your browser
+4. Edit files directly — no rebuild or restart needed, just refresh
 
 ## 📚 Primary Sources Used
 

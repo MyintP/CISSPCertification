@@ -163,6 +163,3 @@ The **(ISC)² Code of Ethics** has four canons, in priority order — memorize t
 | "Protects secrecy only, indefinitely" | Trade secret |
 | "72-hour breach notification" | GDPR |
 
----
-
-**Test yourself:** `quiz/domain-1-quiz.md` · Practice sheet → Domain 1 Knowledge Check

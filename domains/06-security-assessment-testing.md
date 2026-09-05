@@ -108,6 +108,3 @@ Automated, scheduled, broad-coverage — checks systems against known-vulnerabil
 | "Design only, one point in time" | SOC 2 Type I |
 | "Public summary report" | SOC 3 |
 
----
-
-**Test yourself:** `quiz/domain-6-quiz.md` · Practice sheet → Domain 6 Knowledge Check

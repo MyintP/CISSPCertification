@@ -90,6 +90,3 @@ The exam draws heavily on the **OWASP Top 10** concept set (memorize the vulnera
 | "Multiple record versions per classification level" | Polyinstantiation |
 | "Inventory of everything in a build" | SBOM |
 
----
-
-**Test yourself:** `quiz/domain-8-quiz.md` · Practice sheet → Domain 8 Knowledge Check
